@@ -6,7 +6,7 @@
 <struts>
 
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
-    <constant name="struts.devMode" value="true" />
+    <constant name="struts.devMode" value="false" />
 
     <package name="default" namespace="/" extends="struts-default, json-default">
 
@@ -14,7 +14,19 @@
     
     <!-- First, read the HTML elements before calling 'print' action -->
     <action name="main">
-    	<result>/index.jsp</result>
+    	<result>/index.html</result>
+    </action>
+    
+    <action name="insert" class="coex.action.MemberAction" method="insert">
+    	<result type="json"/>
+    </action>
+    
+    <action name="print" class="coex.action.MemberAction" method="print">
+    	<result type="json"/>
+    </action>
+    
+    <action name="delete" class="coex.action.MemberAction" method="delete">
+    	<result type="json"/>
     </action>
 
 	
