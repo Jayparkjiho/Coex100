@@ -17,6 +17,14 @@
     	<result>/index.html</result>
     </action>
     
+    <action name="loginForm">
+    	<result>/loginForm.jsp</result>
+    </action>
+    
+    <action name="joinForm">
+    	<result>/joinForm.jsp</result>
+    </action>
+    
     <action name="insert" class="coex.action.MemberAction" method="insert">
     	<result type="json"/>
     </action>

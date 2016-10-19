@@ -197,14 +197,14 @@ p { text-align: center; font-size: 14px; color: #848789; font-weight: 300; word-
 p.text-intro { font-size: 18px; }
 .hero { background: url(../img/hero-bg.jpg) no-repeat top center #f4f5fc; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; height: 685px; }
 nav { height: 85px; margin-top: 30px; position: relative; }
-.logo-holder { background: url(../img/main-logo.png) no-repeat center center; width: 94px; height: 85px; position: absolute; top: 0; left: 327px; }
+.logo-holder { background: url(../img/coex-logo.png) no-repeat; width: 120px; height: 42px; position: absolute; top: 15px; left: 327px; background-size: cover;}
 .responsive-logo { display: hidden; }
 header { background-color: #f4f5fc; }
 header ul { padding-top: 35px; }
 header ul li { list-style: none; float: left; text-transform: uppercase; letter-spacing: 2px; }
-header ul li a { display: block; margin: 0 30px; color: #4d4959; }
-.r_spacer { margin-right: 180px; }
-.intro { padding: 115px 0; background-color: #fbfbfb; }
+header ul li a { display: block; margin: 0 21px; color: #4d4959; }
+.r_spacer { margin-right: 168px; }
+.intro { padding: 115px 0; background-color: #ff1494; } 
 .section-1 { background: url(../img/left-box-1.jpg) no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; height: 600px; position: relative; }
 .section-2 { background: url(../img/left-box-2.jpg) no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; height: 600px; position: relative; }
 .section-3 { background: url(../img/red-frame.jpg) no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; height: 600px; position: relative; }
