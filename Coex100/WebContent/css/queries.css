@@ -32,6 +32,6 @@ CSS Queries
     .pullcontainer a#pull { display: block; width: 100%; color: #242a2c; }
 }
 
-@media screen and (max-width:1300px) {
+@media screen and (min-width:0px) {
     .infoBtn { background: url(../img/Mouse.png) no-repeat; width: 50px; height: 50px; position: absolute; top: 700px; left: 49%; background-size: cover; }
 }
