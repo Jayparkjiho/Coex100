@@ -7,12 +7,16 @@
 		insert into member values(seq_mem_num.nextval, #{mem_id}, #{mem_pw}, #{mem_name}, #{mem_phone}, #{mem_email})
 	</insert>
 	
-	<select id="print" resultType="Member">
+	<select id="login" parameterType="Member" resultType="Member">
+		select * from member where mem_id = #{mem_id} and mem_pw = #{mem_pw}
+	</select>
+	
+<!-- 	<select id="print" resultType="Member">
 		select mem_num, mem_id, mem_pw, mem_name, mem_phone, mem_email from member
 	</select>
 	
 	<delete id="delete" parameterType="int">
 		delete member where mem_num = #{mem_num}
-	</delete>
+	</delete> -->
 	
 </mapper>

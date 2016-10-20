@@ -187,6 +187,10 @@ User Styles
 /* ==========================================================================
 User Styles
 ========================================================================== */
+/* 고상형이 추가한 코드 */
+input.loginId { margin-left: 18%; }
+#googleplus { margin-left: 38%; }
+/* ======================================================================= */
 .clearfix:before, .clearfix:after { content: " "; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { *zoom: 1; }

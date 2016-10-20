@@ -16,7 +16,7 @@ public class MemberDAO {
 	public void insert(Member member){
 		System.out.println(member);
 		try{
-			sqlSession = MybatisConfig.getSqlSessionFactory().openSession();
+			sqlSession = sqlSessionFactory.openSession();
 			sqlSession.insert("MemberMapper.insert", member);
 			sqlSession.commit();
 		} catch (Exception e) {
@@ -29,7 +29,24 @@ public class MemberDAO {
 		}
 	}
 	
-	//회원목록을 가져오는 메소드
+	//로그인 메소드 로그인할 아이디와 비밀번호를 입력받은 member를 가져와서 디비에서 확인후 그 맴버 객체를 보낸다.
+	public Member login(Member member){
+		System.out.println(member);
+		Member result = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			result = sqlSession.selectOne("MemberMapper.login", member);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return result;
+	}
+	
+	/*//회원목록을 가져오는 메소드
 	public List<Member> print(){
 		List<Member> mem_list = null;
 		try {
@@ -57,9 +74,6 @@ public class MemberDAO {
 				sqlSession.close();
 			}
 		}
-	}
-	
-	
-	
+	}*/
 	
 }

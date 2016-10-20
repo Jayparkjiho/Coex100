@@ -20,7 +20,7 @@ public class MemberAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
-	public String print(){
+	/*public String print(){
 		System.out.println("print");
 		MemberDAO dao = new MemberDAO();
 		list_mem = dao.print();
@@ -33,10 +33,8 @@ public class MemberAction extends ActionSupport{
 		MemberDAO dao = new MemberDAO();
 		dao.delete(member.getMem_num());
 		return SUCCESS;
-	}
+	}*/
 	
-	
-
 	public Member getMember() {
 		return member;
 	}
