@@ -36,8 +36,18 @@
     <action name="delete" class="coex.action.MemberAction" method="delete">
     	<result type="json"/>
     </action>
+    
+    <action name="questionForm">
+    	<result>/questionForm.jsp</result>
+    </action>
+    
+    <action name="question1" class="coex.action.AnswerAction" method="question1">
+    	<result>/question1.jsp</result>
+    </action>
 
-	
+	<action name="question2" class="coex.action.AnswerAction" method="question2">
+    	<result name="success">/question2.jsp</result>
+    </action>
 
     </package>
 

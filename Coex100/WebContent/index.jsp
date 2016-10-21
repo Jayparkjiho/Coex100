@@ -135,7 +135,7 @@
 			</div>
 		</div>
 		<div class="hero">
-         <a data-toggle="modal" data-target="#infoModal"><img alt="" class="infoBtn"></a>
+         <a href="questionForm.action"><img alt="" class="infoBtn"></a>
       	</div>
 
 	</header>

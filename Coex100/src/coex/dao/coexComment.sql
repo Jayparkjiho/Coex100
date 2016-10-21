@@ -8,3 +8,16 @@ create table member(
 );
 
 CREATE SEQUENCE seq_mem_num;
+
+
+create table ANSWER(
+perpose varchar2(100) primary key,
+sex char(1) not null,
+age varchar2(50) not null,
+people varchar2(50),
+relation varchar2(50),
+baby varchar2(50),
+transport varchar2(50) not null,
+starttime varchar2(50) not null,
+endtime varchar2(50) not null
+)
