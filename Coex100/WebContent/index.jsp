@@ -87,7 +87,7 @@
 					<nav>
 						<div class="logo-holder"></div>
 						<ul class="clearfix">
-							<li><a href="#about">점포 소개</a></li>
+							<li><a href="insertPlaceForm.action">점포 소개</a></li>
 							<li><a href="#work" class="r_spacer">추천경로・ 통계</a></li>
 							<!-- <li><a href="#shop">예약관리</a></li> -->
 							

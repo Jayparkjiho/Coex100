@@ -8,6 +8,7 @@
 	<typeAliases>
 		<typeAlias type="coex.vo.Member" alias="Member"/>
 		<typeAlias type="coex.vo.Answer" alias="Answer"/>
+		<typeAlias type="coex.vo.Place" alias="Place"/>
 	</typeAliases>
 	
 	<!-- DB접속 정보 셋팅 -->
@@ -26,6 +27,7 @@
 	<!-- SQL문 정의한 파일 포함 -->
 	<mappers>
 		<mapper resource="coex/mapper/MemberMapper.xml" />
+		<mapper resource="coex/mapper/PlaceMapper.xml"/>
 	</mappers>
 	
 </configuration>

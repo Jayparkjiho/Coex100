@@ -21,3 +21,23 @@ transport varchar2(50) not null,
 starttime varchar2(50) not null,
 endtime varchar2(50) not null
 )
+
+
+
+create sequence seq_place;
+
+create table place (
+	place_num varchar2(10) primary key ,
+	place_name varchar2(50) not null,
+	place_loc varchar2(30) not null,
+	place_info varchar2(100) not null,
+	place_price number(20) not null,
+	place_like number(10) default 0,
+	place_time varchar2(20) not null,
+	place_picture varchar2(500) not null,
+	place_runtime varchar2(100) not null,
+	place_cate varchar2(500) not null,
+	place_menu varchar2(700) not null
+);
+
+drop table place;

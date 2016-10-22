@@ -48,6 +48,14 @@
 	<action name="question2" class="coex.action.AnswerAction" method="question2">
     	<result name="success">/question2.jsp</result>
     </action>
+    
+    <action name="insertPlaceForm">
+    	<result>/insertPlaceForm.jsp</result>
+    </action>
+    
+    <action name="insertPlace" class="coex.action.PlaceAction" method="insertPlace">
+    	<result name="success" type="redirect">main.action</result>
+    </action>
 
     </package>
 

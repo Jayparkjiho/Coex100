@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PlaceMapper">
+	
+	<insert id="insert" parameterType="Place">
+		insert into place values(seq_place.nextval, #{place_name}, #{place_loc}, #{place_info}, #{place_price}, #{place_like}, #{place_time}, #{place_picture}, #{place_runtime}, #{place_cate}, #{place_menu})
+	</insert>
+	
+</mapper>
