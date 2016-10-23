@@ -19,43 +19,90 @@
 				alert('모두 입력해 주세요.');
 				return;
 			}
-			var login = {"member.mem_id":mem_id, "member.mem_pw":mem_pw};
+			var loginData = {"member.mem_id":mem_id, "member.mem_pw":mem_pw};
 			$.ajax({
 				url:'login',
 				method:'post',
-				data:login,
+				data:loginData,
 				dataType:'json',
 				success: function(response){
-					$('#myModal').modal('hide');
+					$('#myModal1').modal('hide');
 					$('#loginModal').css('display','none');
 					$('.clearfix').append('<li><a href = "logout.action">로그아웃</a></li>');
 					$('.clearfix').append('<li><a href = "myPage.action">마이페이지</a></li>');
+				},
+				error: function(){
+					alert("로그인 할 수 없습니다.");
 				}
+				
 			});
 		});
 		
-		/* $('.a-next').on('click', function(){
-			var perpose = $(':radio[name="goal"]:checked').val();
-			var sex = '';
-			var age = '';
-			var people = '';
-			var relation = '';
-			var baby = '';
-			var transport = '';
-			var startTime = '';
-			var endTime = '';
-			alert(perpose);
-			if (perpose.length === 0) {
-				//아무것도 입력 받지 않았을 때 예외처리 해야됨
+		
+		$('#joinFormCheck').on('click', function(){
+			var mem_id = $('#id').val();
+			var mem_pw = $('#pw').val();
+			var mem_pwc = $('#pwc').val();
+			var mem_sex = $(':radio[name="mem_sex"]:checked').val();
+			alert(mem_sex);
+			var mem_age = $('#age').val();
+			var mem_phone = $('#phone').val();
+			var mem_email = $('#email').val();
+			
+			if (mem_pw != mem_pwc) {
+				alert("비밀번호가 같지 않습니다.");
+				return;
 			}
-			else{
-				var sex = $(':radio[name="sex"]:checked').val();
-				var age = $('#age select option:selected').val();
-				alert(sex);
-				alert(age);
-			}
-		}); */
-	});
+			
+			var joinData = {
+				"member.mem_id":mem_id, 
+				"member.mem_pw":mem_pw, 
+				"member.mem_sex":mem_sex, 
+				"member.mem_age":mem_age,
+				"member.mem_phone":mem_phone,
+				"member.mem_email":mem_email
+			};
+			var modal = $('#myModal2').modal();
+			$.ajax({
+				url:'join',
+				method:'post',
+				data:joinData,
+				dataType:'json',
+				success: function(msg){
+					console.log(msg);
+					$('#myModal2').modal('hide');
+				}
+			});
+		}); 
+		
+		
+		var checkTimeOut;
+		$('#id').keyup(function() {
+		   	clearTimeout(checkTimeOut);
+		   	checkTimeOut = setTimeout(function(){ 
+		   		if($('#id').val().length>1){
+		   			var id = $('#id').val();
+		   			$.ajax({
+		   				url:"idCheck",
+		   				type:"post",
+		   				data:
+		   					{"member.mem_id": id},
+		   				dataType:'json',
+		   				success: function(data){
+		   					if(data.result == true){
+		   						$('#check').empty();
+		   						$('#check').append("사용 가능한 아이디 입니다");
+		   					}
+		   					else{
+		   						$('#check').empty();
+		   						$('#check').append("사용 불가능한 아이디 입니다");
+		   					}
+		               	}//end success function
+		           	});//end ajax
+	          	};//end if문
+	       	},1000); //end setTimeout 
+	   	});//set keyup
+	});//end ready
 </script>
 
 <title>코엑스 100배 즐기기</title>
@@ -93,40 +140,7 @@
 							
 							<!-- 로그인 모달 -->
 							<li>
-								<a id="loginModal" data-toggle="modal" data-target="#myModal">로그인/회원가입</a> 
-								<!-- Modal -->
-								<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-									aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"aria-label="Close">
-													<span aria-hidden="true">&times;</span>
-												</button>
-												<h4 class="modal-title" id="myModalLabel">로그인</h4>
-											</div>
-											<div class="modal-body">
-											
-												<!-- 로그인 폼 show -->
-												<div class="login-page">
-													<div class="form">
-														<form class="login-form" action="login">
-															<input class="loginId" type="text" id = "username" placeholder="username" /> 
-															<input type="password" id = "userpassword" placeholder="password" />
-															<input type="button" id="submit" value="login"/>
-															<p class="message">
-																Not registered? <a href="joinForm">Create an account</a>
-															</p>
-															<br />
-															<button id="googleplus">Sign in with Google</button>
-														</form>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
+								<a id="loginModal" data-toggle="modal" data-target="#myModal1">로그인/회원가입</a> 
 							</li>
 
 						</ul>
@@ -140,178 +154,106 @@
 
 	</header>
 
-	<!-- 기본정보 모달 -->
-   <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-         <div class="modal-content">
-            <div class="modal-header">
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-               </button>
-               <h4 class="modal-title" id="myModalLabel">목적 WHY?</h4>
-            </div>
-            <div class="modal-body">
-               <div>
-                  <input type="radio" name="goal" value="박람회">박람회
-                  <input type="radio" name="goal" value="쇼핑">쇼핑
-                  <input type="radio" name="goal" value="식사">식사
-                  <input type="radio" name="goal" value="데이트">데이트
-                  <input type="radio" name="goal" value="영화">영화
-                  <input type="radio" name="goal" value="기타">기타
-               </div>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">로그인</h4>
+				</div>
+				<div class="modal-body">
+					<!-- 로그인 폼 show -->
+					<div class="login-page">
+						<div class="form">
+							<form class="login-form" action="login">
+								<input class="loginId" type="text" id="username" placeholder="username" /> 
+								<input type="password" id="userpassword" placeholder="password" /> 
+								<input type="button" id="submit" value="login" />
+								<p class="message"> Not registered? 
+								<a data-toggle="modal" data-target="#myModal2" data-dismiss="modal">Create an account</a>
+								</p>
+								<br/>
+								<button id="googleplus">Sign in with Google</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-            </div><!-- 모달바디 끝-->
-            <div class="modal-bottom">
-               <a class="a-before">이전페이지</a>
-               <a data-toggle="modal" data-target="#infoModal2" class="a-next" data-dismiss="modal">다음페이지</a>
-               
-            </div><!-- 모달 푸터 -->
-         </div>
-      </div>
-   </div>
-   <!-- 기본정보모달끝 -->
+	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+               <h4 class="modal-title" id="myModalLabel">회원가입</h4>
+            </div>
+            <div class="modal-body">
+            
+            
+            <form action="join" method="post" id="joinForm" name="joinForm">
+			<p>아이디</p>
+			<p>
+			<input type="text" id="id" name="member.mem_id" class="id" placeholder="ID" />
+			<font id="check" color="red"></font>
+			</p>
 
-<!-- 기본정보2 모달 -->
-   <div class="modal fade" id="infoModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-         <div class="modal-content">
-            <div class="modal-header">
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-               </button>
-               <h4 class="modal-title" id="myModalLabel">기본 정보</h4>
-            </div>
-            <div class="modal-body">
-               <div>
-                  <input type="radio" name="sex" value="m">남자
-                  <input type="radio" name="sex" value="w">여자
-               </div>
-               <div>
-                  <span>연령대</span> 
-                  <select id="age">
-                     <option value="10">10대</option>
-                     <option value="20">20대</option>
-                     <option value="30">30대</option>
-                     <option value="40">40대</option>
-                     <option value="50">50대이상</option>
-                  </select>
-               </div>
-               <div>
-                  <span>동행인</span> 
-                  <select id="people">
-                     <option value="0">없음</option>
-                     <option value="1">1명</option>
-                     <option value="2">2명</option>
-                     <option value="3">3명</option>
-                     <option value="기타">기타</option>
-                  </select>
-               </div>
-               <div>
-                  <span>관계</span> 
-                  <select id="relation">
-                     <option value="친구">친구</option>
-                     <option value="연인">연인</option>
-                     <option value="부부">부부</option>
-                  </select>
-               </div>
-               <div>
-                  <span>아이 여부</span> 
-                  <input type="radio" name="baby" value="t">있음
-                  <input type="radio" name="baby" value="f">없음
-               </div>
-               <div>
-                  <span>교통편</span> 
-                  <select id="transport">
-                     <option value="친구">도보</option>
-                     <option value="연인">버스</option>
-                     <option value="부부">지하철 2호선</option>
-                     <option value="부부">지하철 9호선</option>
-                  </select>
-               </div>
-               <div>
-                  <span>체류 시간</span> 
-                  <select id="startTime">
-                     <option value="친구">오전12시</option>
-                     <option value="연인">오전1시</option>
-                     <option value="부부">오전2시</option>
-                     <option value="부부">오전3시</option>
-                     <option value="친구">오전4시</option>
-                     <option value="연인">오전5시</option>
-                     <option value="부부">오전6시</option>
-                     <option value="부부">오전7시</option>
-                     <option value="친구">오전8시</option>
-                     <option value="연인">오전9시</option>
-                     <option value="부부">오전10시</option>
-                     <option value="부부">오전11시</option>
-                     <option value="친구">오후12시</option>
-                     <option value="연인">오후1시</option>
-                     <option value="부부">오후2시</option>
-                     <option value="부부">오후3시</option>
-                     <option value="친구">오후4시</option>
-                     <option value="연인">오후5시</option>
-                     <option value="부부">오후6시</option>
-                     <option value="부부">오후7시</option>
-                     <option value="친구">오후8시</option>
-                     <option value="연인">오후9시</option>
-                     <option value="부부">오후10시</option>
-                     <option value="부부">오후11시</option>
-                  </select>
-                  <span>~</span>
-                   <select id="endTime">
-                     <option value="친구">오전12시</option>
-                     <option value="연인">오전1시</option>
-                     <option value="부부">오전2시</option>
-                     <option value="부부">오전3시</option>
-                     <option value="친구">오전4시</option>
-                     <option value="연인">오전5시</option>
-                     <option value="부부">오전6시</option>
-                     <option value="부부">오전7시</option>
-                     <option value="친구">오전8시</option>
-                     <option value="연인">오전9시</option>
-                     <option value="부부">오전10시</option>
-                     <option value="부부">오전11시</option>
-                     <option value="친구">오후12시</option>
-                     <option value="연인">오후1시</option>
-                     <option value="부부">오후2시</option>
-                     <option value="부부">오후3시</option>
-                     <option value="친구">오후4시</option>
-                     <option value="연인">오후5시</option>
-                     <option value="부부">오후6시</option>
-                     <option value="부부">오후7시</option>
-                     <option value="친구">오후8시</option>
-                     <option value="연인">오후9시</option>
-                     <option value="부부">오후10시</option>
-                     <option value="부부">오후11시</option>
-                  </select>
-               </div>
-               
+			<p>비밀번호</p>
+			<p>
+			<input type="password" id="pw" name="member.mem_pw"
+				title="Must be at least 6 characters long" placeholder="비밀번호 5자 이상" name="password" required>
+			</p>
+
+			<p>비밀번호 확인</p>
+			<p>
+			<input type="password" id="pwc" placeholder="비밀번호를 다시 입력해 주세요" name="passwordConfirm" required>
+			</p>
+
+			<p>성별</p>
+			<p>
+			<input type="radio" name="mem_sex" value="0"> <span>남자</span>&nbsp;&nbsp;
+			<input type="radio" name="mem_sex" value="1"> <span>여자</span>
+			</p>
+
+			<p>나이</p>
+			<p>
+			<input type="text" id="age" name="member.mem_age" placeholder="" required>
+			</p>
+
+			<p>전화번호</p>
+			<p>
+			<input type="text" id="phone" name="member.mem_phone" placeholder="010-0000-0000" required>
+			</p>
+
+			<p>Email</p>
+			<p>
+			<input type="email" name="member.mem_email" id="email"
+				pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
+				placeholder="name@site.com" required> 
+			</p>
+				
+			
+			<br/><br/><br/>
+			<p>
+			<input type="checkbox" name="agree" id="ca_tos" required> 
+			<label for="ca_tos">I agree to the <a href="#">terms of service</a>
+			</label>
+			<br/><br/>
+			<input type="button" id="joinFormCheck" name="joinFormCheck" value="가입하기">
+			</p>
+
+			</form>
             </div><!-- 모달바디 끝-->
             <div class="modal-bottom">
-               <a class="a-before">이전페이지</a>
-               <a data-toggle="modal" data-target="#infoModal3" class="a-next" data-dismiss="modal">다음페이지</a>
-               
-            </div><!-- 모달 푸터 -->
-         </div>
-      </div>
-   </div>
-   <!-- 기본정보모달2끝 -->
-	
-	<div class="modal fade" id="infoModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-         <div class="modal-content">
-            <div class="modal-header">
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-               </button>
-               <h4 class="modal-title" id="myModalLabel">목적 WHY?</h4>
-            </div>
-            <div class="modal-body">
-               
-            </div><!-- 모달바디 끝-->
-            <div class="modal-bottom">
-               <a class="a-before">이전페이지</a>
+              <!--  <a class="a-before">이전페이지</a>
                <a data-toggle="modal" data-target="#infoModal2" class="a-next" data-dismiss="modal">다음페이지</a>
-               
+                -->
             </div><!-- 모달 푸터 -->
          </div>
       </div>

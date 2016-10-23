@@ -1,4 +1,4 @@
-package coex.dao;
+package coex.util;
 
 import java.io.Reader;
 

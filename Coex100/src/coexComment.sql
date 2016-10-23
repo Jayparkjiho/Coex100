@@ -1,13 +1,15 @@
 create table member(
 	mem_num number primary key,
-	mem_id varchar2(20) not null,
+	mem_id varchar2(20) unique not null,
 	mem_pw varchar2(20) not null,
-	mem_name varchar2(20) not null,
+	mem_sex varchar2(10) not null,
+	mem_age number(5) not null,
 	mem_phone varchar2(30) not null,
 	mem_email varchar2(40) not null
 );
 
 CREATE SEQUENCE seq_mem_num;
+
 
 
 create table ANSWER(

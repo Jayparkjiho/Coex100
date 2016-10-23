@@ -21,11 +21,12 @@
     	<result type="json"/>
     </action>
     
-    <action name="joinForm">
-    	<result>/joinForm.jsp</result>
+    
+    <action name="idCheck" class="coex.action.LoginAction" method="idCheck">
+    	<result type="json"/>
     </action>
     
-    <action name="insert" class="coex.action.MemberAction" method="insert">
+    <action name="join" class="coex.action.LoginAction" method="insertMember">
     	<result type="json"/>
     </action>
     

@@ -1,10 +1,9 @@
 package coex.dao;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import coex.util.MybatisConfig;
 import coex.vo.Member;
 
 public class MemberDAO {
@@ -13,11 +12,11 @@ public class MemberDAO {
 	SqlSession sqlSession;
 
 	//회원 등록하는 메소드
-	public void insert(Member member){
+	public void insertMember(Member member){
 		System.out.println(member);
 		try{
 			sqlSession = sqlSessionFactory.openSession();
-			sqlSession.insert("MemberMapper.insert", member);
+			sqlSession.insert("MemberMapper.insertMember", member);
 			sqlSession.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -29,6 +28,26 @@ public class MemberDAO {
 		}
 	}
 	
+	public boolean idCheck(String id){
+		System.out.println(id);
+		Member member = null;
+		boolean result = false;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			member = sqlSession.selectOne("MemberMapper.idCheck", id);
+			if (member == null) {
+				result = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return result;
+	}
+	
 	//로그인 메소드 로그인할 아이디와 비밀번호를 입력받은 member를 가져와서 디비에서 확인후 그 맴버 객체를 보낸다.
 	public Member login(Member member){
 		System.out.println(member);
@@ -36,6 +55,7 @@ public class MemberDAO {
 		try {
 			sqlSession = sqlSessionFactory.openSession();
 			result = sqlSession.selectOne("MemberMapper.login", member);
+			System.out.println(result);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

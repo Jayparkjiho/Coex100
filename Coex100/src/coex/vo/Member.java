@@ -5,17 +5,21 @@ public class Member {
 	private int mem_num;
 	private String mem_id;
 	private String mem_pw;
-	private String mem_name;
+	private String mem_sex;
+	private int mem_age;
 	private String mem_phone;
 	private String mem_email;
 	
 	public Member(){}
-	
-	public Member(int mem_num, String mem_id, String mem_pw, String mem_name, String mem_phone, String mem_email) {
+
+	public Member(int mem_num, String mem_id, String mem_pw, String mem_sex, int mem_age, String mem_phone,
+			String mem_email) {
+		super();
 		this.mem_num = mem_num;
 		this.mem_id = mem_id;
 		this.mem_pw = mem_pw;
-		this.mem_name = mem_name;
+		this.mem_sex = mem_sex;
+		this.mem_age = mem_age;
 		this.mem_phone = mem_phone;
 		this.mem_email = mem_email;
 	}
@@ -44,12 +48,20 @@ public class Member {
 		this.mem_pw = mem_pw;
 	}
 
-	public String getMem_name() {
-		return mem_name;
+	public String getMem_sex() {
+		return mem_sex;
 	}
 
-	public void setMem_name(String mem_name) {
-		this.mem_name = mem_name;
+	public void setMem_sex(String mem_sex) {
+		this.mem_sex = mem_sex;
+	}
+
+	public int getMem_age() {
+		return mem_age;
+	}
+
+	public void setMem_age(int mem_age) {
+		this.mem_age = mem_age;
 	}
 
 	public String getMem_phone() {
@@ -70,10 +82,11 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return "Member [mem_num=" + mem_num + ", mem_id=" + mem_id + ", mem_pw=" + mem_pw + ", mem_name=" + mem_name
-				+ ", mem_phone=" + mem_phone + ", mem_email=" + mem_email + "]";
+		return "Member [mem_num=" + mem_num + ", mem_id=" + mem_id + ", mem_pw=" + mem_pw + ", mem_sex=" + mem_sex
+				+ ", mem_age=" + mem_age + ", mem_phone=" + mem_phone + ", mem_email=" + mem_email + "]";
 	}
+
 	
 	
-	
+
 }

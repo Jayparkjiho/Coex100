@@ -11,14 +11,16 @@ public class MemberAction extends ActionSupport{
 
 	Member member;
 	List<Member> list_mem;
+	MemberDAO dao = new MemberDAO();
 	
-	public String insert(){
-		System.out.println("insert");
+	/*public String insertMember() throws Exception{
+		System.out.println("insertMember()메소드 실행");
 		System.out.println(member);
-		MemberDAO dao = new MemberDAO();
-		dao.insert(member);
+		dao.insertMember(member);
 		return SUCCESS;
 	}
+	*/
+	
 	
 	/*public String print(){
 		System.out.println("print");
@@ -50,6 +52,9 @@ public class MemberAction extends ActionSupport{
 	public void setList_mem(List<Member> list_mem) {
 		this.list_mem = list_mem;
 	}
+
+	
+	
 	
 	
 }

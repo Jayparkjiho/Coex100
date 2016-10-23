@@ -3,6 +3,7 @@ package coex.dao;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import coex.util.MybatisConfig;
 import coex.vo.Place;
 
 public class PlaceDAO {
