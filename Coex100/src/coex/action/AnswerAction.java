@@ -13,13 +13,13 @@ public class AnswerAction extends ActionSupport implements SessionAware {
 	Answer answer;
 	Map<String,Object> session;
 		
-	public String question1(){
+	/**
+	 * 처음 목적 선택시 디테일페이지로 넘어가는 액션 처리합니다.
+	 * @return 성공
+	 */
+	public String firstQuestion(){
 		System.out.println("액션이다"+answer.getPerpose());
 		session.put("answer", this.answer);
-			
-		if (answer.getPerpose() == "연예인") {
-			return "entertainment";
-		}
 		return SUCCESS;
 	}
 		

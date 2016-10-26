@@ -39,11 +39,12 @@
     </action>
     
     <action name="questionForm">
-    	<result>/questionForm.jsp</result>
+    	<result>/question-perpose.jsp</result>
     </action>
     
-    <action name="question1" class="coex.action.AnswerAction" method="question1">
-    	<result>/question1.jsp</result>
+    <action name="detailForm" class="coex.action.AnswerAction" method="firstQuestion">
+    	<result name="success">/question-detail.jsp</result>
+    	<result name="input">/error.jsp</result>
     </action>
 
 	<action name="question2" class="coex.action.AnswerAction" method="question2">
