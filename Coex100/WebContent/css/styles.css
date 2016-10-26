@@ -278,3 +278,63 @@ footer p { font-size: 13px; margin: 0; }
 .modal-bottom { margin-top: 15px; padding: 19px 20px 20px; border-top: 1px solid #e5e5e5;}
 .a-before { float: left; }
 .a-next { float: right; }
+
+/*#고경현 10-24 6시  */
+@media only screen {
+   .toggle   { color: #fff; display: block; font-family: sans-serif; font-size: 12px; font-weight: bold; margin: 0; padding: 0; position: relative; width: 300px; }
+   .toggle label {   display: block;   padding: 3px 0;   position: relative;   width: 100%; z-index: 3; }
+   .toggle input { opacity: 0;   position: absolute;   z-index: 5;   }
+   .toggle input:focus ~ .toggle-button { outline: 1px dotted #6B6B6B;   }
+   .switch   { border: 0; color: #fff; font-family: sans-serif; font-size: 12px;   font-weight: bold; padding: 0; position: relative; width: 450px; }
+   .switch legend { color: #6B6B6B; display: block; float: left; font-size: 12px; line-height: 15px; padding: 7px 6% 3px 0; text-align: right; width: 30%; }
+   .switch input[type="radio"] {   opacity: 0;   position: absolute;   }
+   .switch legend:after { border-radius: 3px; content: ''; height: 100%; left: 50%; padding: 2px; position: absolute; top: 0; width: 70%; z-index: 0; }
+   .switch label {   color: #DEDEDE;   cursor: pointer; float: left; margin-top: 2px; padding: 5px 0 3px 0; position: relative; text-align: center; width: 25%; z-index: 2; }
+   .switch input:checked + label {   color: #6B6B6B;   moz-transition: all 0.4s ease-in 0s; o-transition: all 0.4s ease-in 0s;   transition: all 0.4s ease-in 0s; webkit-transition: all 0.4s ease-in 0s; }
+   .switch input:focus + label   { background-color: #EDEDED; moz-transition: all 0.4s ease-in 0s; o-transition: all 0.4s ease-in 0s; transition: all 0.4s ease-in 0s; webkit-transition: all 0.4s ease-in 0s; }
+   .switch .switch-button { border-bottom: solid 1px #6B6B6B; clear: both;   height: 65%; left: 29.5%; margin: 2px; moz-transition: all 0.3s ease-out;   o-transition: all 0.3s ease-out; position: absolute; top: 0; transition: all 0.3s ease-out; webkit-transition: all 0.3s ease-out; z-index: 1; }
+   .switch input:last-of-type:checked ~ .switch-button{ left: 65%;   }
+   .switch.switch-five label { width: 12.7%; }
+   .switch.switch-five .switch-button {   width: 12.7%;   }
+   .switch.switch-five input:checked:nth-of-type(2) ~ .switch-button { left: 42.2%; }
+   .switch.switch-five input:checked:nth-of-type(3) ~ .switch-button { left: 54.9%; }
+   .switch.switch-five input:checked:nth-of-type(4) ~ .switch-button { left: 67.6%; }
+   .switch.switch-five input:checked:last-of-type ~ .switch-button { left: 80.3%;   }
+   
+   .switch.switch-four label { width: 12.7%; }
+   .switch.switch-four .switch-button {   width: 12.7%;   }
+   .switch.switch-four input:checked:nth-of-type(2) ~ .switch-button { left: 42.2%; }
+   .switch.switch-four input:checked:nth-of-type(3) ~ .switch-button { left: 54.9%; }
+   .switch.switch-four input:checked:last-of-type ~ .switch-button { left: 67.6%;   }
+   
+   .switch.switch-three label { width: 12.7%; }
+   .switch.switch-three .switch-button   { width: 12.7%; }
+   .switch.switch-three input:checked:nth-of-type(2) ~ .switch-button { left: 42.2%; }
+   .switch.switch-three input:checked:last-of-type ~ .switch-button { left: 54.9%; }
+   .switch.fcRed .switch-button { border-bottom: solid 1px red; }
+   .switch.fcRed input:checked + label   { color: red; }
+}
+.spaceEmOut{ margin-bottom: 15px;}
+/* body { padding: 50px } */
+.archive__separator {
+    display: inline-block;
+    width: 12%;
+    text-align: center;
+    color: #737373;
+}
+
+/*#고경현 10-25 9시  */
+.start-time{ display: table-cell; position: relative; z-index: 2; float: left; margin-bottom: 0; display: block; width: 51%; height: 34px; padding: 6px 12px; font-size: 14px; line-height: 1.42857143; color: #555; background-color: #fff; background-image: none; border: 1px solid #ccc; border-radius: 4px; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075); box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075); -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
+.start-time-addon{ display: inline; width: 1%; white-space: nowrap; vertical-align: middle; padding: 6px 12px; font-size: 14px; font-weight: 400; line-height: 2.5; color: #555; text-align: center; background-color: #eee; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; }
+.answer_lis5{ color: #6B6B6B; font-weight: bold; display: block; float: left; font-size: 12px; line-height: 4px; padding: 7px 17% 3px 0; text-align: right; width: 30%; }
+.question2{background-color: white; padding: 20%; padding-top: 6%; padding-left: 8%; padding-bottom: 3%; width: 50%; border-radius: 8px; }
+div.pad-btm-40{margin-left: -28%; margin-right: -71%}
+.answer_lis1{ color: #6B6B6B; font-weight: bold; display: block; float: left; font-size: 12px; line-height: 4px; padding: 7px 8% 3px 0; text-align: right; width: 30%; }
+.p_sch1{ color: #6B6B6B; font-weight: bold; display: block; float: left; font-size: 10px; line-height: 4px; padding: 7px 17% 3px 0; text-align: right; width: 30%; }
+.p_sch1_pl{ color: #6B6B6B; font-weight: bold; display: block; float: left; font-size: 12px; line-height: 4px; padding: 7px 8% 3px 0; text-align: right; width: 30%; }
+.p_sch2{ color: #6B6B6B; font-weight: bold; display: block; float: left; font-size: 10px; line-height: 4px; padding: 7px 17% 3px 0; text-align: right; width: 30%; }
+.p_sch2_pl{ color: #6B6B6B; font-weight: bold; display: block; float: left; font-size: 12px; line-height: 4px; padding: 7px 8% 3px 0; text-align: right; width: 30%; }
+
+
+
+
