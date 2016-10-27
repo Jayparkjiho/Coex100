@@ -4,7 +4,11 @@
 <mapper namespace="PlaceMapper">
 	
 	<insert id="insert" parameterType="Place">
-		insert into place values(seq_place.nextval, #{place_name}, #{place_loc}, #{place_info}, #{place_price}, #{place_like}, #{place_time}, #{place_picture}, #{place_runtime}, #{place_cate}, #{place_menu})
+		insert into place values(
+		seq_place.nextval, #{place_name}, #{place_nodeno}, #{place_info}, 
+		#{place_price}, #{place_eval_avg}, #{place_working_day}, #{place_open_time}, 
+		#{place_close_time}, #{place_category}, #{place_runtime_min}, #{place_runtime_max}, 
+		#{place_photo_name}, #{place_type}, #{pref_no})
 	</insert>
 	
 </mapper>

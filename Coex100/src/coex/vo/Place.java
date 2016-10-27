@@ -2,91 +2,178 @@ package coex.vo;
 
 public class Place {
 	
-	private String place_num; 
-	private String place_name; 
-	private String place_loc; 
+	private int place_no;
+	private String place_name;
+	private int place_nodeno;
 	private String place_info;
-	private int place_price; 
-	private int place_like; 
-	private String place_time; 
-	private String place_picture; 
-	private String place_runtime;
-	private String place_cate;
-	private String place_menu;
+	private int place_price;
+	private float place_eval_avg;
+	private int place_working_day;
+	private String place_open_time;
+	private String place_close_time;
+	private String place_category;
+	private int place_runtime_min;
+	private int place_runtime_max;
+	private String place_photo_name;
+	private int place_type;
+	private int pref_no;
 	
-	public String getPlace_num() {
-		return place_num;
+	public Place(){}
+
+	public Place(int place_no, String place_name, int place_nodeno, String place_info, int place_price,
+			float place_eval_avg, int place_working_day, String place_open_time, String place_close_time,
+			String place_category, int place_runtime_min, int place_runtime_max, String place_photo_name,
+			int place_type, int pref_no) {
+		this.place_no = place_no;
+		this.place_name = place_name;
+		this.place_nodeno = place_nodeno;
+		this.place_info = place_info;
+		this.place_price = place_price;
+		this.place_eval_avg = place_eval_avg;
+		this.place_working_day = place_working_day;
+		this.place_open_time = place_open_time;
+		this.place_close_time = place_close_time;
+		this.place_category = place_category;
+		this.place_runtime_min = place_runtime_min;
+		this.place_runtime_max = place_runtime_max;
+		this.place_photo_name = place_photo_name;
+		this.place_type = place_type;
+		this.pref_no = pref_no;
 	}
-	public void setPlace_num(String place_num) {
-		this.place_num = place_num;
+
+	public int getPlace_no() {
+		return place_no;
 	}
+
+	public void setPlace_no(int place_no) {
+		this.place_no = place_no;
+	}
+
 	public String getPlace_name() {
 		return place_name;
 	}
+
 	public void setPlace_name(String place_name) {
 		this.place_name = place_name;
 	}
-	public String getPlace_loc() {
-		return place_loc;
+
+	public int getPlace_nodeno() {
+		return place_nodeno;
 	}
-	public void setPlace_loc(String place_loc) {
-		this.place_loc = place_loc;
+
+	public void setPlace_nodeno(int place_nodeno) {
+		this.place_nodeno = place_nodeno;
 	}
+
 	public String getPlace_info() {
 		return place_info;
 	}
+
 	public void setPlace_info(String place_info) {
 		this.place_info = place_info;
 	}
+
 	public int getPlace_price() {
 		return place_price;
 	}
+
 	public void setPlace_price(int place_price) {
 		this.place_price = place_price;
 	}
-	public int getPlace_like() {
-		return place_like;
+
+	public float getPlace_eval_avg() {
+		return place_eval_avg;
 	}
-	public void setPlace_like(int place_like) {
-		this.place_like = place_like;
+
+	public void setPlace_eval_avg(float place_eval_avg) {
+		this.place_eval_avg = place_eval_avg;
 	}
-	public String getPlace_time() {
-		return place_time;
+
+	public int getPlace_working_day() {
+		return place_working_day;
 	}
-	public void setPlace_time(String place_time) {
-		this.place_time = place_time;
+
+	public void setPlace_working_day(int place_working_day) {
+		this.place_working_day = place_working_day;
 	}
-	public String getPlace_picture() {
-		return place_picture;
+
+	public String getPlace_open_time() {
+		return place_open_time;
 	}
-	public void setPlace_picture(String place_picture) {
-		this.place_picture = place_picture;
+
+	public void setPlace_open_time(String place_open_time) {
+		this.place_open_time = place_open_time;
 	}
-	public String getPlace_runtime() {
-		return place_runtime;
+
+	public String getPlace_close_time() {
+		return place_close_time;
 	}
-	public void setPlace_runtime(String place_runtime) {
-		this.place_runtime = place_runtime;
+
+	public void setPlace_close_time(String place_close_time) {
+		this.place_close_time = place_close_time;
 	}
-	public String getPlace_cate() {
-		return place_cate;
+
+	public String getPlace_category() {
+		return place_category;
 	}
-	public void setPlace_cate(String place_cate) {
-		this.place_cate = place_cate;
+
+	public void setPlace_category(String place_category) {
+		this.place_category = place_category;
 	}
-	public String getPlace_menu() {
-		return place_menu;
+
+	public int getPlace_runtime_min() {
+		return place_runtime_min;
 	}
-	public void setPlace_menu(String place_menu) {
-		this.place_menu = place_menu;
+
+	public void setPlace_runtime_min(int place_runtime_min) {
+		this.place_runtime_min = place_runtime_min;
 	}
+
+	public int getPlace_runtime_max() {
+		return place_runtime_max;
+	}
+
+	public void setPlace_runtime_max(int place_runtime_max) {
+		this.place_runtime_max = place_runtime_max;
+	}
+
+	public String getPlace_photo_name() {
+		return place_photo_name;
+	}
+
+	public void setPlace_photo_name(String place_photo_name) {
+		this.place_photo_name = place_photo_name;
+	}
+
+	public int getPlace_type() {
+		return place_type;
+	}
+
+	public void setPlace_type(int place_type) {
+		this.place_type = place_type;
+	}
+
+	public int getPref_no() {
+		return pref_no;
+	}
+
+	public void setPref_no(int pref_no) {
+		this.pref_no = pref_no;
+	}
+
 	@Override
 	public String toString() {
-		return "Place [place_num=" + place_num + ", place_name=" + place_name + ", place_loc=" + place_loc
-				+ ", place_info=" + place_info + ", place_price=" + place_price + ", place_like=" + place_like
-				+ ", place_time=" + place_time + ", place_picture=" + place_picture + ", place_runtime=" + place_runtime
-				+ ", place_cate=" + place_cate + ", place_menu=" + place_menu + "]";
-	} 
-	
+		return "Place [place_no=" + place_no + ", place_name=" + place_name + ", place_nodeno=" + place_nodeno
+				+ ", place_info=" + place_info + ", place_price=" + place_price + ", place_eval_avg=" + place_eval_avg
+				+ ", place_working_day=" + place_working_day + ", place_open_time=" + place_open_time
+				+ ", place_close_time=" + place_close_time + ", place_category=" + place_category
+				+ ", place_runtime_min=" + place_runtime_min + ", place_runtime_max=" + place_runtime_max
+				+ ", place_photo_name=" + place_photo_name + ", place_type=" + place_type + ", pref_no=" + pref_no
+				+ "]";
+	}
 
+	
+	
+	
+	
 }

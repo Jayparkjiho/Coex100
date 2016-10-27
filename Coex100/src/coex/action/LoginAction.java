@@ -22,7 +22,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		System.out.println("insertMember()메소드 실행");
 		System.out.println(member);
 		dao.insertMember(member);
-		System.out.println("dkdkdkdkdkdkdkdkdkdk");
 		return SUCCESS;
 	}
 	
@@ -30,11 +29,10 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		System.out.println("login");
 		member = dao.login(member);
 		if (member == null) {
-			message = ERROR;
+			message = "없는 아이디이거나 아이디와 비밀번호가 맞지 않습니다";
 		}
 		else {
 			session.put("loginId", member);
-			message =  SUCCESS;
 		}
 		return SUCCESS;
 	}
@@ -76,8 +74,5 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public void setMessage(String message) {
 		this.message = message;
 	}
-
-	
-	
 	
 }

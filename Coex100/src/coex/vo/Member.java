@@ -14,7 +14,6 @@ public class Member {
 
 	public Member(int mem_num, String mem_id, String mem_pw, String mem_sex, int mem_age, String mem_phone,
 			String mem_email) {
-		super();
 		this.mem_num = mem_num;
 		this.mem_id = mem_id;
 		this.mem_pw = mem_pw;

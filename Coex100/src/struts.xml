@@ -6,7 +6,7 @@
 <struts>
 
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
-    <constant name="struts.devMode" value="false" />
+    <constant name="struts.devMode" value="true" />
 
     <package name="default" namespace="/" extends="struts-default, json-default">
 
@@ -30,26 +30,25 @@
     	<result type="json"/>
     </action>
     
-    <action name="print" class="coex.action.MemberAction" method="print">
+    <!-- <action name="print" class="coex.action.MemberAction" method="print">
     	<result type="json"/>
     </action>
     
     <action name="delete" class="coex.action.MemberAction" method="delete">
     	<result type="json"/>
-    </action>
+    </action> -->
     
     <action name="questionForm">
-    	<result>/question-perpose.jsp</result>
-    </action>
-    
-    <action name="detailForm" class="coex.action.AnswerAction" method="firstQuestion">
-    	<result name="success">/question-detail.jsp</result>
-    	<result name="input">/error.jsp</result>
+    	<result>/question1-1.jsp</result>
     </action>
 
 	<action name="question2" class="coex.action.AnswerAction" method="question2">
-    	<result name="success">/question2.jsp</result>
+       	<result name="success">/question1-2.jsp</result>
     </action>
+    
+   	<action name="question3" class="coex.action.AnswerAction" method="question3">
+       	<result name="success">/question1-3.jsp</result>
+	</action>
     
     <action name="insertPlaceForm">
     	<result>/insertPlaceForm.jsp</result>
@@ -58,6 +57,9 @@
     <action name="insertPlace" class="coex.action.PlaceAction" method="insertPlace">
     	<result name="success" type="redirect">main.action</result>
     </action>
+    
+    
+    
 
     </package>
 

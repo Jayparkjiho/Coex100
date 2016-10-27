@@ -11,7 +11,7 @@
 <script src="script/jquery-3.1.0.min.js" type="text/javascript"></script>
 <script>
    $(function(){
-      $("#submit").on('click', function(){
+      $("#loginSend").on('click', function(){
          var mem_id = $('#username').val();
          var mem_pw = $('#userpassword').val();
          
@@ -28,8 +28,8 @@
             success: function(response){
                $('#myModal1').modal('hide');
                $('#loginModal').css('display','none');
-               $('.clearfix').append('<li><a href = "logout.action">로그아웃</a></li>');
-               $('.clearfix').append('<li><a href = "myPage.action">마이페이지</a></li>');
+               $('#sideBar').prepend('<a href = "logout.action">로그아웃</a> <a href = "myPage.action">마이페이지</a>');
+               $('.clearfix').append('<li></li>');
                sessionStorage.setItem("loginId", mem_id);
                console.log(sessionStorage.getItem('loginId'));
             },
@@ -197,7 +197,7 @@
             <!-- <div class="pullcontainer" style="display: inline-block;"> -->
             <a id="loginModal" data-toggle="modal" data-target="#myModal1" data-dismiss="modal" style="display: inline-block; margin-left: 70%;">로그인/회원가입</a>
             <div style="display: inline-block; text-align: right; margin-left: 5%; ">
-            	<span class="openmenu" onclick='openNav()'>
+            	<span id="sideBar" class="openmenu" onclick='openNav()'>
    					<i class="fa fa-bars fa-2x" aria-hidden="true"></i>
    				</span>
    			</div>	
@@ -205,9 +205,9 @@
          </div><!-- 로고포함 로우 -->
           	
           	<div id="mysidenav" class="sidenav">
-			      <a href="#" class="closebtn" onclick='closeNav()'>x</a>
-			      <a href="#"></a>
-			      <a href="#">Services</a>
+			      <a href="main.action" class="closebtn" onclick='closeNav()'>x</a>
+			      <a href="insertPlaceForm.action">가계 정보 입력</a>
+			      <a href="questionForm.action">정보입력질문</a>
 			      <a href="#">Clients</a>
 			      <a href="#">Contact</a>
    			</div><!-- 사이드네비 -->
@@ -242,7 +242,7 @@
                      <form class="login-form" action="login">
                         <input class="loginId" type="text" id="username" placeholder="username" /> 
                         <input type="password" id="userpassword" placeholder="password" /> 
-                        <input type="button" id="submit" value="login" />
+                        <input type="button" id="loginSend" value="login" />
                         <p class="message"> Not registered? 
                         <a data-toggle="modal" data-target="#myModal2" data-dismiss="modal">Create an account</a>
                         </p>
