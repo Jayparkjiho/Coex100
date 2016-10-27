@@ -44,25 +44,28 @@ create table CoexPREFERENCE_TB(
 
 
 create table coexplace_tb (
-	place_no number primary key,
-	place_name varchar2(100) not null,
-	place_nodeno number not null,
-	place_info varchar2(1000) not null,
-	place_price number,
-	place_eval_avg number(5,2) not null,
-	place_working_day number not null,
-	place_open_time varchar2(10) not null,
-	place_close_time varchar2(10) not null,
-	place_category varchar2(100) not null,
-	place_runtime_min number not null,
-	place_runtime_max number not null,
-	place_photo_name varchar2(100) not null,
-	place_type number not null,
-	pref_no number,
-	constraint fk_coexplace_tb foreign key(pref_no)
-	references coexpreference_tb(pref_no)
-	on delete cascade
+   place_no number primary key,
+   place_name varchar2(100) not null,
+   place_nodeno number not null,
+   place_info varchar2(2000) not null,
+   place_price number,
+   place_eval_avg number(5,2) not null,
+   place_working_day number not null,
+   place_open_time varchar2(10) not null,
+   place_close_time varchar2(10) not null,
+   place_category varchar2(100) not null,
+   place_runtime_min number not null,
+   place_runtime_max number not null,
+   place_photo_name varchar2(100) not null,
+   place_type number not null,
+   pref_no number,
+   constraint fk_coexplace_tb foreign key(pref_no)
+   references coexpreference_tb(pref_no)
+   on delete cascade
 );
+
+alter table coexplace_tb
+modify place_info varchar2(2000);
 
 create table food_tb(
 	food_num number primary key,
@@ -89,7 +92,7 @@ create table sequence seq_food_num;
 
 create sequence seq_place_no;
 
-
+insert into COEXPREFERENCE_TB (PREF_NO) values(seq_pref_no.nextval)
 
 CREATE TABLE ANSWER(
 ANSWERNO NUMBER(10) PRIMARY KEY,
@@ -110,4 +113,6 @@ ANSWER_STWO_NODE NUMBER(10),
 ANSWER_STWO_START VARCHAR2(7),
 ANSWER_STWO_END VARCHAR2(7)
 )
+select * from coexplace_tb
 
+insert into coexplace_tb values(seq_place_no.nextval, '#1', 1,1,1,1,1,1,1,1,1,1,1,1,1)

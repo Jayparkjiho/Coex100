@@ -41,6 +41,16 @@ public class PlaceAction extends ActionSupport {
 		dao.insertPlace(place);
 		return SUCCESS;
 	}
+	
+	public String getPlaceList(){
+		System.out.println("메소드");
+		if (place.getPlace_category().equals("전체")) {
+			System.out.println("전체입니다.");
+			PlaceDAO dao = new PlaceDAO();
+			list_Place= dao.getList();
+		}
+		return SUCCESS;
+	}
 
 	public Place getPlace() {
 		return place;

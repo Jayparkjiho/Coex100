@@ -53,11 +53,16 @@
     <action name="insertPlaceForm">
     	<result>/insertPlaceForm.jsp</result>
     </action>
+    <action name="List">
+    	<result>/placeList.jsp</result>
+    </action>
     
     <action name="insertPlace" class="coex.action.PlaceAction" method="insertPlace">
     	<result name="success" type="redirect">main.action</result>
     </action>
-    
+    <action name="getList" class="coex.action.PlaceAction" method="getPlaceList">
+    	<result type="json"/>
+    </action>
     
     
 
