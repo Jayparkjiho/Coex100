@@ -4,15 +4,15 @@
 <mapper namespace="MemberMapper">
 
 	<insert id="insertMember" parameterType="Member">
-		insert into member values(seq_mem_num.nextval, #{mem_id}, #{mem_pw}, #{mem_sex}, #{mem_age}, #{mem_email}, #{mem_phone})
+		insert into member_tb values(seq_mem_num.nextval, #{mem_id}, #{mem_pw}, #{mem_sex}, #{mem_age}, #{mem_email}, #{mem_phone})
 	</insert>
 	
 	<select id="login" parameterType="Member" resultType="Member">
-		select * from member where mem_id = #{mem_id} and mem_pw = #{mem_pw}
+		select * from member_tb where mem_id = #{mem_id} and mem_pw = #{mem_pw}
 	</select>
 	
 	<select id="idCheck" parameterType="String" resultType="Member">
-		select * from member where mem_id = #{mem_id}
+		select * from member_tb where mem_id = #{mem_id}
 	</select>
 	
 <!-- 	<select id="print" resultType="Member">

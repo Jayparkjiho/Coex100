@@ -13,7 +13,7 @@ import coex.vo.Place;
 public class PlaceAction extends ActionSupport {
 	
 	Place place;
-	List<Place> list_Place;
+	List<Place> list_place;
 	PlaceDAO dao = new PlaceDAO();
 	
 	private File upload;						//업로드할 파일
@@ -47,7 +47,8 @@ public class PlaceAction extends ActionSupport {
 		if (place.getPlace_category().equals("전체")) {
 			System.out.println("전체입니다.");
 			PlaceDAO dao = new PlaceDAO();
-			list_Place= dao.getList();
+			list_place= dao.getList();
+			System.out.println(list_place);
 		}
 		return SUCCESS;
 	}
@@ -60,12 +61,12 @@ public class PlaceAction extends ActionSupport {
 		this.place = place;
 	}
 
-	public List<Place> getList_Place() {
-		return list_Place;
+	public List<Place> getList_place() {
+		return list_place;
 	}
 
-	public void setList_Place(List<Place> list_Place) {
-		this.list_Place = list_Place;
+	public void setList_place(List<Place> list_place) {
+		this.list_place = list_place;
 	}
 
 	public File getUpload() {

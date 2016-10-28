@@ -4,7 +4,7 @@
 <mapper namespace="PlaceMapper">
 	
 	<insert id="insert" parameterType="Place">
-		insert into place values(
+		insert into coexplace_tb values(
 		seq_place.nextval, #{place_name}, #{place_nodeno}, #{place_info}, 
 		#{place_price}, #{place_eval_avg}, #{place_working_day}, #{place_open_time}, 
 		#{place_close_time}, #{place_category}, #{place_runtime_min}, #{place_runtime_max}, 

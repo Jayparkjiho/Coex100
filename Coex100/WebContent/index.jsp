@@ -10,7 +10,11 @@
 
 <script src="script/jquery-3.1.0.min.js" type="text/javascript"></script>
 <script>
-   $(function(){
+/* var jq3_1_0 = $.noConflict();
+(function($) { */
+	
+	
+	  $(function(){
       $("#loginSend").on('click', function(){
          var mem_id = $('#username').val();
          var mem_pw = $('#userpassword').val();
@@ -103,7 +107,8 @@
                 };//end if문
              },1000); //end setTimeout 
          });//set keyup
-   });//end ready
+   });//end ready()
+   /* })(jq3_1_0)//end ready() */
    
    function openNav() {
        document.getElementById('mysidenav').style.width = '250px';
@@ -208,7 +213,7 @@
 			      <a href="main.action" class="closebtn" onclick='closeNav()'>x</a>
 			      <a href="insertPlaceForm.action">가계 정보 입력</a>
 			      <a href="questionForm.action">정보입력질문</a>
-			      <a href="#">Clients</a>
+			      <a href="List.action">상점리스트</a>
 			      <a href="#">Contact</a>
    			</div><!-- 사이드네비 -->
       
@@ -429,7 +434,7 @@
    <script src="js/scripts.js"></script>
    <script src="js/modernizr.js"></script>
    <script src="js/waypoints.min.js"></script>
-   <script src="js/torchlight.auto.js"></script>
+   <script src="js/torchlight.auto.js"></script> 
      </div>
 </body>
 </html>
