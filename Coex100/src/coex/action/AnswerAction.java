@@ -38,7 +38,6 @@ public class AnswerAction extends ActionSupport implements SessionAware {
 	 */
 	public String question3(){
 		
-		System.out.println(answer);
 		session.put("answer", this.answer);
 		
 		return SUCCESS;
@@ -50,13 +49,13 @@ public class AnswerAction extends ActionSupport implements SessionAware {
 	 * @return
 	 */
 	public String insertAnswer(){
-		System.out.println(session.get("answer"));
 		//세션에 있는 데이터를 새로운 Answer객체로 이동
 		Answer answer2 = new Answer();
 		answer2 = (Answer)session.get("answer");
-		System.out.println(answer2);
-		
 		//Answer에 데이터 합치기
+		if ((int)session.get("purpose_no")!= 0 || (int)session.get("purpose_no")!= 3) {
+			answer.setAnswer_purpose_no((int)session.get("purpose_no"));
+		}
 		answer.setAnswer_date(answer2.getAnswer_date());
 		answer.setAnswer_start_time(answer2.getAnswer_start_time());
 		answer.setAnswer_end_time(answer2.getAnswer_end_time());
@@ -65,7 +64,6 @@ public class AnswerAction extends ActionSupport implements SessionAware {
 		answer.setAnswer_head_count(answer2.getAnswer_head_count());
 		answer.setAnswer_traffic(answer2.getAnswer_traffic());
 		answer.setAnswer_meal(answer2.getAnswer_meal());
-		System.out.println();
 		AnswerDAO dao = new AnswerDAO();
 		dao.insertAnswer(answer);
 		
