@@ -11,7 +11,10 @@ public class MemberDAO {
 	SqlSessionFactory sqlSessionFactory = MybatisConfig.getSqlSessionFactory();
 	SqlSession sqlSession;
 
-	//회원 등록하는 메소드
+	/**
+	 * 회원가입 페이지에서 입력받은 member객체를 db에 저장하는 메소든
+	 * @param member
+	 */
 	public void insertMember(Member member){
 		System.out.println(member);
 		try{
@@ -28,6 +31,11 @@ public class MemberDAO {
 		}
 	}
 	
+	/**
+	 * 회원가입시 입력받는 아이디가 db에 있는지 확인하는 메소드
+	 * @param id
+	 * @return
+	 */
 	public boolean idCheck(String id){
 		System.out.println(id);
 		Member member = null;
@@ -48,7 +56,11 @@ public class MemberDAO {
 		return result;
 	}
 	
-	//로그인 메소드 로그인할 아이디와 비밀번호를 입력받은 member를 가져와서 디비에서 확인후 그 맴버 객체를 보낸다.
+	/**
+	 * 로그인 메소드 로그인할 아이디와 비밀번호를 입력받은 member를 가져와서 디비에서 확인후 그 맴버 객체를 보낸다.
+	 * @param member
+	 * @return
+	 */
 	public Member login(Member member){
 		System.out.println(member);
 		Member result = null;

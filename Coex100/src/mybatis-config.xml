@@ -28,6 +28,7 @@
 	<mappers>
 		<mapper resource="coex/mapper/MemberMapper.xml" />
 		<mapper resource="coex/mapper/PlaceMapper.xml"/>
+		<mapper resource="coex/mapper/AnswerMapper.xml"/>
 	</mappers>
 	
 </configuration>

@@ -15,6 +15,8 @@ public class Answer {
 	private int answer_traffic;                  // 교통편 (0: 2호선, 1: 9호선, 3: 버스, 4: 자가용)
 	private int answer_meal;                     // 식사 (0: 안 먹어, 1: 점심, 2: 저녁, 3: 점심저녁)
 	private int answer_scount;                   //
+	private String answer_purpose_start;
+	private String answer_purpose_end;
 	private int answer_sone_node;                //
 	private String answer_sone_start;            // 
 	private String answer_sone_end;              //
@@ -25,12 +27,12 @@ public class Answer {
 	public Answer( ){
 		
 	}
-	
+
 	public Answer(int answer_no, int answer_purpose_no, Date answer_date, String answer_start_time,
 			String answer_end_time, int answer_sex, int answer_age, int answer_head_count, int answer_traffic,
-			int answer_meal, int answer_scount, int answer_sone_node, String answer_sone_start, String answer_sone_end,
-			int answer_stwo_node, String answer_stwo_start, String answer_stwo_end) {
-		
+			int answer_meal, int answer_scount, String answer_purpose_start, String answer_purpose_end,
+			int answer_sone_node, String answer_sone_start, String answer_sone_end, int answer_stwo_node,
+			String answer_stwo_start, String answer_stwo_end) {
 		this.answer_no = answer_no;
 		this.answer_purpose_no = answer_purpose_no;
 		this.answer_date = answer_date;
@@ -42,6 +44,8 @@ public class Answer {
 		this.answer_traffic = answer_traffic;
 		this.answer_meal = answer_meal;
 		this.answer_scount = answer_scount;
+		this.answer_purpose_start = answer_purpose_start;
+		this.answer_purpose_end = answer_purpose_end;
 		this.answer_sone_node = answer_sone_node;
 		this.answer_sone_start = answer_sone_start;
 		this.answer_sone_end = answer_sone_end;
@@ -138,6 +142,22 @@ public class Answer {
 		this.answer_scount = answer_scount;
 	}
 
+	public String getAnswer_purpose_start() {
+		return answer_purpose_start;
+	}
+
+	public void setAnswer_purpose_start(String answer_purpose_start) {
+		this.answer_purpose_start = answer_purpose_start;
+	}
+
+	public String getAnswer_purpose_end() {
+		return answer_purpose_end;
+	}
+
+	public void setAnswer_purpose_end(String answer_purpose_end) {
+		this.answer_purpose_end = answer_purpose_end;
+	}
+
 	public int getAnswer_sone_node() {
 		return answer_sone_node;
 	}
@@ -192,10 +212,14 @@ public class Answer {
 				+ answer_date + ", answer_start_time=" + answer_start_time + ", answer_end_time=" + answer_end_time
 				+ ", answer_sex=" + answer_sex + ", answer_age=" + answer_age + ", answer_head_count="
 				+ answer_head_count + ", answer_traffic=" + answer_traffic + ", answer_meal=" + answer_meal
-				+ ", answer_scount=" + answer_scount + ", answer_sone_node=" + answer_sone_node + ", answer_sone_start="
-				+ answer_sone_start + ", answer_sone_end=" + answer_sone_end + ", answer_stwo_node=" + answer_stwo_node
-				+ ", answer_stwo_start=" + answer_stwo_start + ", answer_stwo_end=" + answer_stwo_end + "]";
+				+ ", answer_scount=" + answer_scount + ", answer_purpose_start=" + answer_purpose_start
+				+ ", answer_purpose_end=" + answer_purpose_end + ", answer_sone_node=" + answer_sone_node
+				+ ", answer_sone_start=" + answer_sone_start + ", answer_sone_end=" + answer_sone_end
+				+ ", answer_stwo_node=" + answer_stwo_node + ", answer_stwo_start=" + answer_stwo_start
+				+ ", answer_stwo_end=" + answer_stwo_end + "]";
 	}
+	
+	
 
 	
    

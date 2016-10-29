@@ -23,19 +23,19 @@
 </head>
 <body
 	style="background-image: url(img/question2-main.jpg); background-repeat: no-repeat; background-size: cover; height: 900px; padding-top: 13%;">
-	<form action="">
 		<div class="container question2">
 			<div class="row pad-btm-40">
+		<form id="insertAnswer" action="insertAnswer" method="post">
 			<!-- START tabs -->
 			<div class="span16">
 				<div class="spaceEmOut">
 					<fieldset class="switch switch-three">
-						<legend>개인일정</legend>
-						<input id="nosch" name="schedule" type="radio" value="0" onclick="div_On(this.value,'con','con2')" checked /> 
+						<legend>추가일정</legend>
+						<input id="nosch" name="answer.answer_scount" type="radio" value="0" onclick="div_On(this.value,'con','con2')" checked /> 
 						<label for="nosch">없음</label> 
-						<input id="onesch" name="schedule" type="radio" value="1" onclick="div_On(this.value,'con','con2')"/>
+						<input id="onesch" name="answer.answer_scount" type="radio" value="1" onclick="div_On(this.value,'con','con2')"/>
 						<label for="onesch">1개</label> 
-						<input id="twosch" name="schedule" type="radio" value="2" onclick="div_On(this.value,'con','con2')"/> 
+						<input id="twosch" name="answer.answer_scount" type="radio" value="2" onclick="div_On(this.value,'con','con2')"/> 
 						<label for="twosch">2개</label> 
 						<span class="switch-button"></span>
 					</fieldset>
@@ -43,20 +43,20 @@
 				</div>
 					
 			</div>
-		
-		<s:if test="%{#session.purpose_no == '2'} || %{#session.purpose_no == '3'}">
 			
-			<div id="con0" style="display: none;">
+		
+		<s:if test="%{#session.purpose_no == 0}" >
+			<div id="con0" >
          
          		<div class="spaceEmOut">
 					<div class="input-answer" style="display: inline-block; padding-bottom: 11px;">
-						<span style="width: 135px;" class="p_sch0">일정.1</span>
+						<span style="width: 135px;" class="p_sch1">박람회</span>
 					</div>
 				</div>
       			<div class="spaceEmOut">
 					<div class="input-answer" style="display: inline-block; padding-bottom: 11px;">
-						<span style="width: 135px;" class="p_sch0_pl">장소검색</span>
-						<input type="text">
+						<span style="width: 135px;" class="p_sch1_pl">장소검색</span>
+						<input type="text" name="answer.answer_purpose_no" value="3">
 					</div>
        			</div>
        			<div class="spaceEmOut">
@@ -67,7 +67,7 @@
 					<div class="input-group clockpicker f-left"
 						style="display: inline-block; width: 130px">
 
-						<input id="time7" type="text" class="start-time" value="09:30">
+						<input id="time7" type="text" class="start-time" value="09:30" name="answer.answer_purpose_start">
 						<span class="input-group-addon"> <span
 							class="glyphicon glyphicon-time"></span>
 						</span>
@@ -75,7 +75,7 @@
 					<span>~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 					<div class="input-group clockpicker f-right"
 						style="display: inline-block; width: 130px">
-						<input id="time8" type="text" class="start-time" value="10:30">
+						<input id="time8" type="text" class="start-time" value="10:30" name="answer.answer_purpose_end">
 						<span class="input-group-addon"> <span
 							class="glyphicon glyphicon-time"></span>
 						</span>
@@ -97,7 +97,7 @@
       			<div class="spaceEmOut">
 					<div class="input-answer" style="display: inline-block; padding-bottom: 11px;">
 						<span style="width: 135px;" class="p_sch1_pl">장소검색</span>
-						<input type="text">
+						<input type="text"  name="answer.answer_sone_node">
 					</div>
        			</div>
        			<div class="spaceEmOut">
@@ -108,7 +108,7 @@
 					<div class="input-group clockpicker f-left"
 						style="display: inline-block; width: 130px">
 
-						<input id="time3" type="text" class="start-time" value="09:30">
+						<input id="time3" type="text" class="start-time" value="09:30" name="answer.answer_sone_start">
 						<span class="input-group-addon"> <span
 							class="glyphicon glyphicon-time"></span>
 						</span>
@@ -116,7 +116,7 @@
 					<span>~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 					<div class="input-group clockpicker f-right"
 						style="display: inline-block; width: 130px">
-						<input id="time4" type="text" class="start-time" value="10:30">
+						<input id="time4" type="text" class="start-time" value="10:30" name="answer.answer_sone_end">
 						<span class="input-group-addon"> <span
 							class="glyphicon glyphicon-time"></span>
 						</span>
@@ -133,7 +133,7 @@
       			<div class="spaceEmOut">
 					<div class="input-answer" style="display: inline-block; padding-bottom: 11px;">
 						<span style="width: 135px;" class="p_sch2_pl">장소검색</span>
-						<input type="text">
+						<input type="text" name="answer.answer_stwo_node">
 					</div>
        			</div>
        			<div class="spaceEmOut">
@@ -143,7 +143,7 @@
 					<div class="input-group clockpicker f-left"
 						style="display: inline-block; width: 130px">
 
-						<input id="time5" type="text" class="start-time" value="09:30">
+						<input id="time5" type="text" class="start-time" value="09:30" name="answer.answer_stwo_start">
 						<span class="input-group-addon"> <span
 							class="glyphicon glyphicon-time"></span>
 						</span>
@@ -151,7 +151,7 @@
 					<span>~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 					<div class="input-group clockpicker f-right"
 						style="display: inline-block; width: 130px">
-						<input id="time6" type="text" class="start-time" value="10:30">
+						<input id="time6" type="text" class="start-time" value="10:30" name="answer.answer_stwo_end">
 						<span class="input-group-addon"> <span
 							class="glyphicon glyphicon-time"></span>
 						</span>
@@ -161,21 +161,16 @@
 				
 		<div class="footer">
 			<div class="footer-left" style="text-align: left; display: inline-block; margin-left: 10%;">
-				<a onclick="javascript: nextanswer()" ><img src="img/left-arrow.png"></a>
+				<a onclick="javascript: back_answer()" ><img src="img/left-arrow.png"></a>
 			</div>
 			<div class="footer-right" style="text-align: right; display: inline-block; margin-left: 73%;">
-				<a onclick="javascript: nextanswer()" ><img src="img/padnote.png"></a>
+				<a onclick="javascript: insert_answer()" ><img src="img/padnote.png"></a>
 			</div>
 		</div>
 			
-		</div>
-
+		</form>
+	</div>
 </div>
-	
-	</form>
-
-
-
 
 <script src="js/pikaday.js"></script>
     <script>
@@ -186,16 +181,6 @@
 		alert(day);
 	}
     
-    var picker = new Pikaday(
-    {
-        field: document.getElementById('datepicker'),
-        firstDay: 1,
-        minDate: new Date(2000, 0, 1),
-        maxDate: new Date(2020, 12, 31),
-        yearRange: [2000, 2020],
-        bound: true,
-        container: document.getElementById('container'),
-    });
 	
     /*나왓다 들어갔다 */
    function div_On(v,id,id2){
@@ -211,55 +196,14 @@
         }//else
        }//function
     
-    function sendanswer() {
+    function insert_answer() {
     	   
-		var sex = document.getElementsByName("answer_sex");
-		for(var i = 0; i < sex.length; i++){
-		    if(sex[i].checked){
-		        alert(sex[i].value);
-		        sex.value = sex[i].value;
-		    }
-		}
+		var form = document.getElementById("insertAnswer");
 		
-		var date = document.getElementById("datepicker");
-		  var strArray=date.value.split(' ');
-		  	if (strArray[1]=='Jan') {
-			date.value = strArray[3]+'-01-'+strArray[2];
-		}	if (strArray[1]=='Feb') {
-			date.value = strArray[3]+'-02-'+strArray[2];
-		}	if (strArray[1]=='Mar') {
-			date.value = strArray[3]+'-03-'+strArray[2];
-		}	if (strArray[1]=='Apr') {
-			date.value = strArray[3]+'-04-'+strArray[2];
-		}	if (strArray[1]=='May') {
-			date.value = strArray[3]+'-05-'+strArray[2];
-		}	if (strArray[1]=='Jun') {
-			date.value = strArray[3]+'-06-'+strArray[2];
-		}	if (strArray[1]=='Jul') {
-			date.value = strArray[3]+'-07-'+strArray[2];
-		}	if (strArray[1]=='Aug') {
-			date.value = strArray[3]+'-08-'+strArray[2];
-		}	if (strArray[1]=='Sep') {
-			date.value = strArray[3]+'-09-'+strArray[2];
-		}	if (strArray[1]=='Oct') {
-			date.value = strArray[3]+'-10-'+strArray[2];
-		}	if (strArray[1]=='Nov') {
-			date.value = strArray[3]+'-11-'+strArray[2];
-		}	if (strArray[1]=='Dec') {
-			date.value = strArray[3]+'-12-'+strArray[2];
-		}
+		form.submit();
 		
-		document.getElementById('answer').submit();
-		
-	}   
-    
-   function jiho() {
-		
-	  
-	
-}
+	}
        
-       
-    </script>
+</script>
 </body>
 </html>

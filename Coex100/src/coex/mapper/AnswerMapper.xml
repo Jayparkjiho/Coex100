@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AnswerMapper">
+
+<insert id="insertAnswer" parameterType="Answer">
+	insert into answer_tb values(
+			seq_answer_no.nextval, #{answer_purpose_no}, #{answer_date}, 
+			#{answer_start_time}, #{answer_end_time}, #{answer_sex}, #{answer_age}, 
+			#{answer_head_count}, #{answer_traffic}, #{answer_meal}, #{answer_scount}, 
+			#{answer_purpose_start}, #{answer_purpose_end}, #{answer_sone_node}, 
+			#{answer_sone_start}, #{answer_sone_end}, #{answer_stwo_node}, 
+			#{answer_stwo_start}, #{answer_stwo_end} 
+	)
+</insert>
+
+
+
+</mapper>

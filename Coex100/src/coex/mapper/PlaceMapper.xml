@@ -21,4 +21,8 @@
 		select * from coexplace_tb
 	</select>
 	
+	<select id="countAll" resultType="int">
+		select count(*) from coexplace_tb
+	</select>
+	
 </mapper>

@@ -12,43 +12,45 @@
 
         <default-action-ref name="main" />
     
-    <!-- First, read the HTML elements before calling 'print' action -->
+   	<!-- 기본 메인 페이지를 호출하는 xml 태그 -->
     <action name="main">
     	<result>/index.jsp</result>
     </action>
     
+	<!-- ajax로 로그인 요청하는 xml 태그(데이터 타입은 json입니다.) -->
     <action name="login" class="coex.action.LoginAction" method="login">
     	<result type="json"/>
     </action>
     
-    
+	<!-- ajax로 회원 가입 시에 데이터 베이스에서 같은 아이디가 있는지 없는지를 체크하는 xml 태그(같은 아이디가 있을 시 jsp화면에 빨간줄이 뜸) -->
     <action name="idCheck" class="coex.action.LoginAction" method="idCheck">
     	<result type="json"/>
     </action>
     
+    <!-- 회원 가입시에 입력받은 데이타를 가지고 member객체를 생성해서 ajax명령어로 데이터에 삽입  -->
     <action name="join" class="coex.action.LoginAction" method="insertMember">
     	<result type="json"/>
     </action>
     
-    <!-- <action name="print" class="coex.action.MemberAction" method="print">
-    	<result type="json"/>
+    <!-- 스케줄 생성시 처음으로 입력받는 question1페이지로 가는 xml태그 -->
+    <action name="question1">
+    	<result>/questionForm.jsp</result>
     </action>
     
-    <action name="delete" class="coex.action.MemberAction" method="delete">
-    	<result type="json"/>
-    </action> -->
-    
-    <action name="questionForm">
-    	<result>/question1-1.jsp</result>
-    </action>
-
+    <!-- questionForm.jsp파일에서 입력받은 목적을 answer객체에 저장하고 question1-2페이지로 가는 xml태그  -->
 	<action name="question2" class="coex.action.AnswerAction" method="question2">
-       	<result name="success">/question1-2.jsp</result>
+    	<result name="success">/question1-2.jsp</result>
     </action>
     
+    <!-- question2.jsp에서 입력받은 데이터를 answer객체에 저장하고 questions3.jsp로 이동하는 xml태그  -->
    	<action name="question3" class="coex.action.AnswerAction" method="question3">
-       	<result name="success">/question1-3.jsp</result>
-	</action>
+    	<result name="success">/question1-3.jsp</result>
+    </action>
+    
+    <!-- 활동일정까지 입력받는 최종 answer객체를 만들어 데이터베이스에 저장하는 xml태그 -->
+    <action name="insertAnswer" class="coex.action.AnswerAction" method="insertAnswer">
+    	<result name="success">/questionForm.jsp</result>
+    </action>
     
     <action name="insertPlaceForm">
     	<result>/insertPlaceForm.jsp</result>
