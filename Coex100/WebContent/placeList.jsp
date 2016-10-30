@@ -155,14 +155,14 @@
         var np = '';
         
         np += "<div class='card small'>";
-        np += "<div class='card horizontal'>";
+       /*  np += "<div class='card horizontal'>"; */
         np += "<div class='card horizontal'><div class='card-image'>";
         np += "<img src=" + list_place.place_photo_name + ">";
         np += "</div><div class='card-stacked'>";
         np += "<div class='card-content'>";
         np += "<p>" + list_place.place_name + "</p>";
         np += "<p>" + list_place.place_info + "</p></div>"
-        np += "<div class='card-action'><a href='a#'>"+ "더보기" +"</a></div></div></div></div>";
+        np += "</a></div><div class='card-action'><a href='a#'>"+ "더보기" +"</div></div>";
   
         return np;
   

@@ -1,4 +1,4 @@
-package util;
+package coex.util;
 import java.util.Map;
 import java.util.Vector;
 

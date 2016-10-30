@@ -1,9 +1,11 @@
-package dao;
+package coex.dao;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import util.Dijkstra_book;
+import coex.util.Dijkstra_book;
+
+
 
 public class DijkstraDAO_TEST {
 	public static void main(String[] args) {
