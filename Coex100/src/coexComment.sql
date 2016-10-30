@@ -121,7 +121,7 @@ ANSWER_STHREE_NODE NUMBER(10)
 )
 
 DROP table ANSWER_tb;
-
+ 
 select * from coexplace_tb
 
 insert into coexplace_tb values(seq_place_no.nextval, '#1', 1,1,1,1,1,1,1,1,1,1,1,1,1)

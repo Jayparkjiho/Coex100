@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Answer {
 	
-	private int answer_no;                       // 질문 번호 (시퀀스)
+	private int answer_no;                       // 질문 번호 (시퀀스))
 	private int answer_purpose_no;               // 방문목적 번호 (0: 전시회, 1: 식사, 2: 쇼핑, 3: 영화, 4: 연인, 5: 그외 )
 	private Date answer_date;                    // 방문 날짜
 	private String answer_start_time;            // 방문 시작시간
