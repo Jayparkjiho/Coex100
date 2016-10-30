@@ -6,7 +6,7 @@ package coex.vo;
  * 각 장소와 연결된 선호도 VO
  */
 public class Preference {
-	private int prefno;
+	private int pref_no;
 	private int pref_10; 	//10대 선호도
 	private int pref_20;	//20대 선호도
 	private int pref_30;	//30대 선호도
@@ -47,7 +47,7 @@ public class Preference {
 			int pref_11_12, int pref_12_13, int pref_13_14, int pref_14_15, int pref_15_16, int pref_16_17,
 			int pref_17_18, int pref_18_19, int pref_19_20, int pref_20_21, int pref_21_22) {
 		super();
-		this.prefno = prefno;
+		this.pref_no = prefno;
 		this.pref_10 = pref_10;
 		this.pref_20 = pref_20;
 		this.pref_30 = pref_30;
@@ -80,12 +80,12 @@ public class Preference {
 		this.pref_21_22 = pref_21_22;
 	}
 
-	public int getPrefno() {
-		return prefno;
+	public int getPref_no() {
+		return pref_no;
 	}
 
-	public void setPrefno(int prefno) {
-		this.prefno = prefno;
+	public void setPref_no(int prefno) {
+		this.pref_no = prefno;
 	}
 
 	public int getPref_10() {
@@ -330,7 +330,7 @@ public class Preference {
 
 	@Override
 	public String toString() {
-		return "Preference [prefno=" + prefno + ", pref_10=" + pref_10 + ", pref_20=" + pref_20 + ", pref_30=" + pref_30
+		return "Preference [prefno=" + pref_no + ", pref_10=" + pref_10 + ", pref_20=" + pref_20 + ", pref_30=" + pref_30
 				+ ", pref_40=" + pref_40 + ", pref_male=" + pref_male + ", pref_female=" + pref_female
 				+ ", pref_conference=" + pref_conference + ", pref_shopping=" + pref_shopping + ", pref_date="
 				+ pref_date + ", pref_meal=" + pref_meal + ", pref_culture=" + pref_culture + ", pref_etc=" + pref_etc

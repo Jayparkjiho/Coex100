@@ -9,6 +9,7 @@
 		<typeAlias type="coex.vo.Member" alias="Member"/>
 		<typeAlias type="coex.vo.Answer" alias="Answer"/>
 		<typeAlias type="coex.vo.Place" alias="Place"/>
+		<typeAlias type="coex.vo.Preference" alias="Preference"/>
 	</typeAliases>
 	
 	<!-- DB접속 정보 셋팅 -->
@@ -29,6 +30,7 @@
 		<mapper resource="coex/mapper/MemberMapper.xml" />
 		<mapper resource="coex/mapper/PlaceMapper.xml"/>
 		<mapper resource="coex/mapper/AnswerMapper.xml"/>
+		<mapper resource="coex/mapper/PreferenceMapper.xml"/>
 	</mappers>
 	
 </configuration>
