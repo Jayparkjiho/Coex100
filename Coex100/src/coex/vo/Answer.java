@@ -14,25 +14,30 @@ public class Answer {
 	private int answer_head_count;               // 방문 인원 (1: 1명, 2: 2명, 3: 3명, 5: 5명, 10: 10명)
 	private int answer_traffic;                  // 교통편 (0: 2호선, 1: 9호선, 3: 버스, 4: 자가용)
 	private int answer_meal;                     // 식사 (0: 안 먹어, 1: 점심, 2: 저녁, 3: 점심저녁)
-	private int answer_scount;                   //
-	private String answer_purpose_start;
-	private String answer_purpose_end;
-	private int answer_sone_node;                //
-	private String answer_sone_start;            // 
-	private String answer_sone_end;              //
-	private int answer_stwo_node;                //
-	private String answer_stwo_start;            //
-	private String answer_stwo_end;              //
-	
+	private int answer_scount;                   // 개인 스케줄 카운트 (0:없어 1:한개 2:2개 3:3개)
+	private int answer_sone_eventno; 			 //1번 스케줄(여기는 박람회나 영화 선택시에만 삽입 가능)의 이벤트번호(장소:10000대나 액션:20000대)             
+	private String answer_sone_start;			 //1번 스케줄의 시작시간
+	private String answer_sone_end;				 //1번 스케줄의 종료시간
+	private int answer_sone_node;				 //1번 스케줄의 위치 노드
+	private int answer_stwo_eventno;			 //2번 스케줄의 이벤트 번호
+	private String answer_stwo_start;			 //2번 스케줄 시작시간
+	private String answer_stwo_end;				 //2번 스케줄 종료시간
+	private int answer_stwo_node;			  	 //2번 스케줄 노드
+	private int answer_sthree_eventno;			 //3번 스케줄의 이벤트번호
+	private String answer_sthree_start;			 //3번 스케줄의 시작시간
+	private String answer_sthree_end;			 //3번 스케줄의 종료시간
+	private int answer_sthree_node;			 	 //3번 스케줄의 노드
+
 	public Answer( ){
-		
 	}
 
+	//생성자 (field와)
 	public Answer(int answer_no, int answer_purpose_no, Date answer_date, String answer_start_time,
 			String answer_end_time, int answer_sex, int answer_age, int answer_head_count, int answer_traffic,
-			int answer_meal, int answer_scount, String answer_purpose_start, String answer_purpose_end,
-			int answer_sone_node, String answer_sone_start, String answer_sone_end, int answer_stwo_node,
-			String answer_stwo_start, String answer_stwo_end) {
+			int answer_meal, int answer_scount, int answer_sone_eventno, String answer_sone_start,
+			String answer_sone_end, int answer_sone_node, int answer_stwo_eventno, String answer_stwo_start,
+			String answer_stwo_end, int answer_stwo_node, int answer_sthree_eventno, String answer_sthree_start,
+			String answer_sthree_end, int answer_sthree_node) {
 		this.answer_no = answer_no;
 		this.answer_purpose_no = answer_purpose_no;
 		this.answer_date = answer_date;
@@ -44,14 +49,18 @@ public class Answer {
 		this.answer_traffic = answer_traffic;
 		this.answer_meal = answer_meal;
 		this.answer_scount = answer_scount;
-		this.answer_purpose_start = answer_purpose_start;
-		this.answer_purpose_end = answer_purpose_end;
-		this.answer_sone_node = answer_sone_node;
+		this.answer_sone_eventno = answer_sone_eventno;
 		this.answer_sone_start = answer_sone_start;
 		this.answer_sone_end = answer_sone_end;
-		this.answer_stwo_node = answer_stwo_node;
+		this.answer_sone_node = answer_sone_node;
+		this.answer_stwo_eventno = answer_stwo_eventno;
 		this.answer_stwo_start = answer_stwo_start;
 		this.answer_stwo_end = answer_stwo_end;
+		this.answer_stwo_node = answer_stwo_node;
+		this.answer_sthree_eventno = answer_sthree_eventno;
+		this.answer_sthree_start = answer_sthree_start;
+		this.answer_sthree_end = answer_sthree_end;
+		this.answer_sthree_node = answer_sthree_node;
 	}
 
 	public int getAnswer_no() {
@@ -142,28 +151,12 @@ public class Answer {
 		this.answer_scount = answer_scount;
 	}
 
-	public String getAnswer_purpose_start() {
-		return answer_purpose_start;
+	public int getAnswer_sone_eventno() {
+		return answer_sone_eventno;
 	}
 
-	public void setAnswer_purpose_start(String answer_purpose_start) {
-		this.answer_purpose_start = answer_purpose_start;
-	}
-
-	public String getAnswer_purpose_end() {
-		return answer_purpose_end;
-	}
-
-	public void setAnswer_purpose_end(String answer_purpose_end) {
-		this.answer_purpose_end = answer_purpose_end;
-	}
-
-	public int getAnswer_sone_node() {
-		return answer_sone_node;
-	}
-
-	public void setAnswer_sone_node(int answer_sone_node) {
-		this.answer_sone_node = answer_sone_node;
+	public void setAnswer_sone_eventno(int answer_sone_eventno) {
+		this.answer_sone_eventno = answer_sone_eventno;
 	}
 
 	public String getAnswer_sone_start() {
@@ -182,12 +175,20 @@ public class Answer {
 		this.answer_sone_end = answer_sone_end;
 	}
 
-	public int getAnswer_stwo_node() {
-		return answer_stwo_node;
+	public int getAnswer_sone_node() {
+		return answer_sone_node;
 	}
 
-	public void setAnswer_stwo_node(int answer_stwo_node) {
-		this.answer_stwo_node = answer_stwo_node;
+	public void setAnswer_sone_node(int answer_sone_node) {
+		this.answer_sone_node = answer_sone_node;
+	}
+
+	public int getAnswer_stwo_eventno() {
+		return answer_stwo_eventno;
+	}
+
+	public void setAnswer_stwo_eventno(int answer_stwo_eventno) {
+		this.answer_stwo_eventno = answer_stwo_eventno;
 	}
 
 	public String getAnswer_stwo_start() {
@@ -206,21 +207,59 @@ public class Answer {
 		this.answer_stwo_end = answer_stwo_end;
 	}
 
+	public int getAnswer_stwo_node() {
+		return answer_stwo_node;
+	}
+
+	public void setAnswer_stwo_node(int answer_stwo_node) {
+		this.answer_stwo_node = answer_stwo_node;
+	}
+
+	public int getAnswer_sthree_eventno() {
+		return answer_sthree_eventno;
+	}
+
+	public void setAnswer_sthree_eventno(int answer_sthree_eventno) {
+		this.answer_sthree_eventno = answer_sthree_eventno;
+	}
+
+	public String getAnswer_sthree_start() {
+		return answer_sthree_start;
+	}
+
+	public void setAnswer_sthree_start(String answer_sthree_start) {
+		this.answer_sthree_start = answer_sthree_start;
+	}
+
+	public String getAnswer_sthree_end() {
+		return answer_sthree_end;
+	}
+
+	public void setAnswer_sthree_end(String answer_sthree_end) {
+		this.answer_sthree_end = answer_sthree_end;
+	}
+
+	public int getAnswer_sthree_node() {
+		return answer_sthree_node;
+	}
+
+	public void setAnswer_sthree_node(int answer_sthree_node) {
+		this.answer_sthree_node = answer_sthree_node;
+	}
+
 	@Override
 	public String toString() {
 		return "Answer [answer_no=" + answer_no + ", answer_purpose_no=" + answer_purpose_no + ", answer_date="
 				+ answer_date + ", answer_start_time=" + answer_start_time + ", answer_end_time=" + answer_end_time
 				+ ", answer_sex=" + answer_sex + ", answer_age=" + answer_age + ", answer_head_count="
 				+ answer_head_count + ", answer_traffic=" + answer_traffic + ", answer_meal=" + answer_meal
-				+ ", answer_scount=" + answer_scount + ", answer_purpose_start=" + answer_purpose_start
-				+ ", answer_purpose_end=" + answer_purpose_end + ", answer_sone_node=" + answer_sone_node
+				+ ", answer_scount=" + answer_scount + ", answer_sone_eventno=" + answer_sone_eventno
 				+ ", answer_sone_start=" + answer_sone_start + ", answer_sone_end=" + answer_sone_end
-				+ ", answer_stwo_node=" + answer_stwo_node + ", answer_stwo_start=" + answer_stwo_start
-				+ ", answer_stwo_end=" + answer_stwo_end + "]";
+				+ ", answer_sone_node=" + answer_sone_node + ", answer_stwo_eventno=" + answer_stwo_eventno
+				+ ", answer_stwo_start=" + answer_stwo_start + ", answer_stwo_end=" + answer_stwo_end
+				+ ", answer_stwo_node=" + answer_stwo_node + ", answer_sthree_eventno=" + answer_sthree_eventno
+				+ ", answer_sthree_start=" + answer_sthree_start + ", answer_sthree_end=" + answer_sthree_end
+				+ ", answer_sthree_node=" + answer_sthree_node + "]";
 	}
 	
-	
-
-	
-   
-}
+}//end of class
