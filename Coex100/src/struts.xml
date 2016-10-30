@@ -56,6 +56,10 @@
     	<result>/insertPlaceForm.jsp</result>
     </action>
     
+     <action name="schedule">
+    	<result>/schedule.jsp</result>
+    </action>
+    
     <action name="List">
     	<result>/placeList.jsp</result>
     </action>

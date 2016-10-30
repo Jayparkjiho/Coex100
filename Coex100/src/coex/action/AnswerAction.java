@@ -53,9 +53,7 @@ public class AnswerAction extends ActionSupport implements SessionAware {
 		Answer answer2 = new Answer();
 		answer2 = (Answer)session.get("answer");
 		//Answer에 데이터 합치기
-		if ((int)session.get("purpose_no")!= 0 || (int)session.get("purpose_no")!= 3) {
-			answer.setAnswer_purpose_no((int)session.get("purpose_no"));
-		}
+		answer.setAnswer_purpose_no((int)session.get("purpose_no"));
 		answer.setAnswer_date(answer2.getAnswer_date());
 		answer.setAnswer_start_time(answer2.getAnswer_start_time());
 		answer.setAnswer_end_time(answer2.getAnswer_end_time());

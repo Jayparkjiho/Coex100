@@ -56,7 +56,9 @@
       			<div class="spaceEmOut">
 					<div class="input-answer" style="display: inline-block; padding-bottom: 11px;">
 						<span style="width: 135px;" class="p_sch1_pl">장소검색</span>
-						<input type="text" name="answer.answer_purpose_no" value="3">
+						<input type="text" name="answer.answer_sone_eventno" value="3">
+						<input type="hidden" name="answer.answer_sone_node" value="1">
+						
 					</div>
        			</div>
        			<div class="spaceEmOut">
@@ -67,7 +69,7 @@
 					<div class="input-group clockpicker f-left"
 						style="display: inline-block; width: 130px">
 
-						<input id="time7" type="text" class="start-time" value="09:30" name="answer.answer_purpose_start">
+						<input id="time7" type="text" class="start-time" value="09:30" name="answer.answer_sone_start">
 						<span class="input-group-addon"> <span
 							class="glyphicon glyphicon-time"></span>
 						</span>
@@ -75,7 +77,7 @@
 					<span>~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 					<div class="input-group clockpicker f-right"
 						style="display: inline-block; width: 130px">
-						<input id="time8" type="text" class="start-time" value="10:30" name="answer.answer_purpose_end">
+						<input id="time8" type="text" class="start-time" value="10:30" name="answer.answer_sone_end">
 						<span class="input-group-addon"> <span
 							class="glyphicon glyphicon-time"></span>
 						</span>
@@ -97,7 +99,8 @@
       			<div class="spaceEmOut">
 					<div class="input-answer" style="display: inline-block; padding-bottom: 11px;">
 						<span style="width: 135px;" class="p_sch1_pl">장소검색</span>
-						<input type="text"  name="answer.answer_sone_node">
+						<input type="text"  name="answer.answer_stwo_eventno">
+						<input type="hidden" name="answer.answer_stwo_node" value="1">
 					</div>
        			</div>
        			<div class="spaceEmOut">
@@ -108,7 +111,7 @@
 					<div class="input-group clockpicker f-left"
 						style="display: inline-block; width: 130px">
 
-						<input id="time3" type="text" class="start-time" value="09:30" name="answer.answer_sone_start">
+						<input id="time3" type="text" class="start-time" value="09:30" name="answer.answer_stwo_start">
 						<span class="input-group-addon"> <span
 							class="glyphicon glyphicon-time"></span>
 						</span>
@@ -116,7 +119,7 @@
 					<span>~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 					<div class="input-group clockpicker f-right"
 						style="display: inline-block; width: 130px">
-						<input id="time4" type="text" class="start-time" value="10:30" name="answer.answer_sone_end">
+						<input id="time4" type="text" class="start-time" value="10:30" name="answer.answer_stwo_end">
 						<span class="input-group-addon"> <span
 							class="glyphicon glyphicon-time"></span>
 						</span>
@@ -133,7 +136,8 @@
       			<div class="spaceEmOut">
 					<div class="input-answer" style="display: inline-block; padding-bottom: 11px;">
 						<span style="width: 135px;" class="p_sch2_pl">장소검색</span>
-						<input type="text" name="answer.answer_stwo_node">
+						<input type="text" name="answer.answer_sthree_eventno">
+						<input type="hidden" name="answer.answer_sthree_node" value="1">
 					</div>
        			</div>
        			<div class="spaceEmOut">
@@ -143,7 +147,7 @@
 					<div class="input-group clockpicker f-left"
 						style="display: inline-block; width: 130px">
 
-						<input id="time5" type="text" class="start-time" value="09:30" name="answer.answer_stwo_start">
+						<input id="time5" type="text" class="start-time" value="09:30" name="answer.answer_sthree_start">
 						<span class="input-group-addon"> <span
 							class="glyphicon glyphicon-time"></span>
 						</span>
@@ -151,7 +155,7 @@
 					<span>~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 					<div class="input-group clockpicker f-right"
 						style="display: inline-block; width: 130px">
-						<input id="time6" type="text" class="start-time" value="10:30" name="answer.answer_stwo_end">
+						<input id="time6" type="text" class="start-time" value="10:30" name="answer.answer_sthree_end">
 						<span class="input-group-addon"> <span
 							class="glyphicon glyphicon-time"></span>
 						</span>
