@@ -11,8 +11,6 @@
 		#{place_photo_name}, #{place_type}, #{pref_no})
 	</insert>
 	
-	
-	
 	<select id="selectList" parameterType="map" resultType="List">
 		select * from coexplace_tb where place_category = %#{category}%
 	</select>

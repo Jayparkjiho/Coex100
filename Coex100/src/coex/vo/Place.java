@@ -1,5 +1,9 @@
 package coex.vo;
 
+/**
+ * @author 고경현
+ * 코엑스 내부에 존재하는 장소 객체
+ */
 public class Place {
 	
 	private int place_no;

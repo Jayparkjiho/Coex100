@@ -1,5 +1,10 @@
 package coex.vo;
 
+/**
+ * 
+ * @author 박지호
+ * 사용자 객체(회원가입 및 로그인 등등에 사용)
+ */
 public class Member {
 
 	private int mem_num;

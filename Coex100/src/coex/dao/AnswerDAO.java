@@ -31,4 +31,6 @@ public class AnswerDAO {
 		
 	}
 	
+	//TODO: Answer를 가져오는 메소드
+	
 }

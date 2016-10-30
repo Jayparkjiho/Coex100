@@ -94,6 +94,8 @@ create sequence seq_place_no;
 
 insert into COEXPREFERENCE_TB (PREF_NO) values(seq_pref_no.nextval)
 
+
+--사용자 질문 답변(ANSWER) 테이블 선언--
 CREATE TABLE ANSWER_TB(
 ANSWERNO NUMBER(10) PRIMARY KEY,
 ANSWER_PURPOSE_NO NUMBER(1) NOT NULL,
@@ -119,7 +121,10 @@ ANSWER_STHREE_START VARCHAR2(10),
 ANSWER_STHREE_END VARCHAR2(10),
 ANSWER_STHREE_NODE NUMBER(10) 
 )
-  
+
+ALTER TABLE COEX_SCHEDULE_TB
+ADD ANSWERNO number(10)
+
 DROP table ANSWER_tb;
  
 select * from coexplace_tb

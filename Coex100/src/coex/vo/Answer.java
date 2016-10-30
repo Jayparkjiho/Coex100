@@ -2,6 +2,12 @@ package coex.vo;
 
 import java.util.Date;
 
+/**
+ * 
+ * @author 김진홍
+ * 사용자가 질문을 모두 답변했을 시 해당 내용을 기반으로 생성되는 
+ * 답변(Answer)객체
+ */
 public class Answer {
 	
 	private int answer_no;                       // 질문 번호 (시퀀스)

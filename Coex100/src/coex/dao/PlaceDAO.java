@@ -82,4 +82,12 @@ public class PlaceDAO {
 		}
 		return result;
 	}
+	
+	/**
+	 * 장소번호로 장소를 찾는 메쏘드
+	 * TODO:FINDPLACE
+	 * 
+	 * 
+	 * 
+	 */
 }
