@@ -29,16 +29,28 @@ $(function(){
     		$.each(placeList, function(index, item){
     			console.log(item.place_no);
     			console.log(index);
-    			output += "<li class='active'>"
-    			output +=	"<a class="+item.place_no+" href=#" +item.place_name+ " data-toggle='tab' title= 'test'>" 
+    			if (index == 0) {
+    				output += "<li class='active'>"
+				}
+    			else{
+    				output += "<li>"
+    			}
+    			output +=	"<a class="+item.place_no+" href=#" +item.place_name+ " data-toggle='tab' title=test>"  //이미지 입혀야 함
     			output +=		"<span class='round-tabs one'>" 
     			output +=		"<i class='glyphicon glyphicon-home'></i>"
     			output +=		"</span>"
     			output +=	"</a>"
     			output +="</li>"
-    			
+    			$('a title').attr('src',item.place_photo_name);
     		}); 
+    		
     		$('#myTab').append(output);
+    		
+    		if (placeList.length == 3) {
+				var size = (100/3) + '%';
+    			$('.nav-tabs > li').css('width', size);
+			}
+    		
     		/* $.each(timeList, function(index, item){
     			console.log(item);
     		}); */
@@ -334,8 +346,8 @@ left: 35%;
 					</ul>
 				</div>
 
-				<!-- <div class="tab-content">
-					<div class="tab-pane fade in active" id="home">
+				<div class="tab-content">
+					<div class="tab-pane fade in active" id="자라홈">
 						<h3 class="head text-center">
 							Welcome to Bootsnipp<sup>™</sup> <span style="color: #f48260;">♥</span>
 						</h3>
@@ -351,7 +363,7 @@ left: 35%;
 						</p>
 					</div>
 					
-					<div class="tab-pane fade" id="profile">
+					<div class="tab-pane fade" id="#1">
 						<h3 class="head text-center">
 							Create a Bootsnipp<sup>™</sup> Profile
 						</h3>
@@ -393,7 +405,7 @@ left: 35%;
 						<p class="narrow text-center">Lorem ipsum dolor sit amet, his
 							ea mollis fabellas principes. Quo mazim facilis tincidunt ut,
 							utinam saperet facilisi an vim.</p>
-					</div> -->
+					</div> 
 					
 					<div class="clearfix"></div>
 				</div>
