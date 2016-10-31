@@ -23,4 +23,12 @@
 		select count(*) from coexplace_tb
 	</select>
 	
+	<select id="findPlace" parameterType="int" resultType="Place">
+		select * from coexplace_tb where place_no = #{place_no}
+	</select>
+	
+	<select id="findAction" parameterType="int" resultType="int">
+		select place_no from coexaction_tb where action_no = #{action_no}
+	</select>
+	
 </mapper>

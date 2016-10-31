@@ -56,7 +56,7 @@
     	<result>/insertPlaceForm.jsp</result>
     </action>
     
-     <action name="schedule">
+     <action name="schedule" class="coex.action.AnswerAction" method="schedule">
     	<result>/schedule.jsp</result>
     </action>
     

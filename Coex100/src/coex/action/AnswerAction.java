@@ -1,5 +1,6 @@
 package coex.action;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -7,13 +8,21 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 import coex.dao.AnswerDAO;
+import coex.dao.PlaceDAO;
+import coex.dao.ScheduleDAO;
 import coex.vo.Answer;
+import coex.vo.Place;
+import coex.vo.Schedule;
 
 public class AnswerAction extends ActionSupport implements SessionAware {
 	
 	Answer answer;
 	Map<String,Object> session;
-		
+	Schedule schedule;
+	String[] eventList;
+	String[] startTimeList;	
+	ArrayList<Place> placeList;
+	Place place;
 	/*public String question1(){
 		session.put("answer", this.answer);
 		
@@ -70,7 +79,58 @@ public class AnswerAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 	
+	//스케줄 테스트
+	public String schedule(){
+		ScheduleDAO dao = new ScheduleDAO();
+		schedule = dao.findSchedule(9999);
+		System.out.println(111);
+		eventList = schedule.getSchedule_event_list().split(",");
+		System.out.println(eventList[0]);
+		System.out.println(eventList[1]);
+		System.out.println(eventList[2]);
+		startTimeList = schedule.getSchedule_time_list().split(",");
+		System.out.println(startTimeList[0]);
+		System.out.println(startTimeList[1]);
+		System.out.println(startTimeList[2]);
+		placeList = new ArrayList<>();
+		PlaceDAO placeDao = new PlaceDAO();
+		
+		for (int i = 0; i < eventList.length; i++) {
+			place = placeDao.findPlace(Integer.parseInt(eventList[i]));
+			placeList.add(place);
+		}
+		for (Place place : placeList) {
+			System.out.println(place);
+		}
+		return SUCCESS;
+	}
 	
+	
+	
+
+	public Schedule getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(Schedule schedule) {
+		this.schedule = schedule;
+	}
+
+	public String[] getEventList() {
+		return eventList;
+	}
+
+	public void setEventList(String[] eventList) {
+		this.eventList = eventList;
+	}
+
+	public String[] getStartTimeList() {
+		return startTimeList;
+	}
+
+	public void setStartTimeList(String[] startTimeList) {
+		this.startTimeList = startTimeList;
+	}
 
 	public Answer getAnswer() {
 		return answer;

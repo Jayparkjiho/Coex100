@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import coex.util.MybatisConfig;
+import coex.vo.Action;
 import coex.vo.Place;
 
 public class PlaceDAO {
@@ -87,7 +88,26 @@ public class PlaceDAO {
 	 * 장소번호로 장소를 찾는 메쏘드
 	 * TODO:FINDPLACE
 	 * 
-	 * 
-	 * 
 	 */
+	public Place findPlace(int place_no){
+		int action_no = place_no;
+		System.out.println(place_no);
+		Place place = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			if (place_no < 20000) {
+				place = sqlSession.selectOne("PlaceMapper.findPlace", place_no);
+			}else{
+				place_no = sqlSession.selectOne("placeMapper.findAction", action_no);
+				place = sqlSession.selectOne("PlaceMapper.findPlace", place_no);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null){
+				sqlSession.close();
+			}
+		}
+		return place;
+	}
 }
