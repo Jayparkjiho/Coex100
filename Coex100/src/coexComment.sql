@@ -44,6 +44,19 @@ create table CoexPREFERENCE_TB(
    PREF_21 number(10) default 0
   );
 
+  
+create table COEXACTION_TB(
+ACTION_NO number primary key,
+ACTION_NAME varchar2(50),
+PLACE_NO number,
+ACTION_START_DATE varchar2(10),
+ACTION_END_DATE varchar2(10),
+ACTION_PHOTO_NAME varchar2(30)
+)
+drop table COEXACTION_TB
+
+create sequence seq_action_no start with 20000 increment by 1
+
 
 
 create table coexplace_tb (

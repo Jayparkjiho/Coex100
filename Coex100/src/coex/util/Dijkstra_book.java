@@ -129,11 +129,11 @@ public class Dijkstra_book {
 		/* 역추적 결과 출력 */
 		stackV.removeAllElements();
 		for (int i = top; i > -1; i--) {
-			//System.out.printf("%d", stack[i]);
+			System.out.printf("%d", stack[i]);
 			routeStr+=stack[i];
 			stackV.add(stack[i]);
 			if (i != 0){
-				//System.out.printf("->");
+				System.out.printf("->");
 				routeStr+="->";
 			}
 		}
