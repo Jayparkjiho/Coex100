@@ -32,6 +32,11 @@
 	)
 </insert>
 
+<!--  -->
+<select id="getSeqNo" resultType="int">
+SELECT LAST_NUMBER FROM SEQ where sequence_name='SEQ_ANSWER_NO'
+</select>
+
 
 
 </mapper>

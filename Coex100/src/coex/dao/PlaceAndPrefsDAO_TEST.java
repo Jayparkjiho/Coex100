@@ -11,6 +11,5 @@ public class PlaceAndPrefsDAO_TEST {
 		for(PlaceAndPref p : dao.getAllList()){
 			System.out.println(p.toString());
 		}
-		
 	}
 }

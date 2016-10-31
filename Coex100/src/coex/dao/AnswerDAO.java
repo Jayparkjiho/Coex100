@@ -28,9 +28,22 @@ public class AnswerDAO {
 				sqlSession.close();
 			}
 		}
-		
 	}
 	
-	//TODO: Answer를 가져오는 메소드
+	public int getSeqNo(){
+		int result=0;
+		try{
+			sqlSession = sqlSessionFactory.openSession();
+			result=sqlSession.selectOne("AnswerMapper.getSeqNo");
+			sqlSession.rollback();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return result;
+	}
 	
 }
