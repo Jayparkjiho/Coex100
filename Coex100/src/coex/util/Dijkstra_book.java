@@ -4,36 +4,36 @@ import java.util.Vector;
 
 public class Dijkstra_book {
 
-	private int sValue = 0;//sum of value of current route
-	private String[] sValues;//shortest values lists
+	private int sValue = 0;//현재 경로의 모든 비용 값
+	private String[] sValues;//가장 작은 비용값의 목록을 담을 배열
 	private String routeStr;//해당 목적지까지의 경로가 저장된 문자열
 
 	int n = 0; // 정점의 갯수
 	
-	final static int m = 99999; //infinite value for unreachable
-	int data[][];	//adjacency matrix 
+	final static int m = 99999; //연결이 되어있지 않은 엣지를 위한 최대값
+	int data[][];	//인접행렬
 	
-	boolean visit[]; // Visited
-	int dis[]; // distance
-	int prev[]; // previous Vertex
+	boolean visit[]; // 방문한 vertex 목록
+	int dis[]; // 거리
+	int prev[]; // 이전Vertex
 	
-	int s,e;  // start vertex, end vertex(source & destination)
-	int stack[]; // stack that stores all routes vertex
+	int s,e;  // 시작 vertex와 끝 vertex
+	int stack[]; // 한 경로의 경유경로를 모두 저장할 배열
 	
 	//TODO:
-	Vector<Integer> stackV;//vector that can store Int value(for what?)
+	Vector<Integer> stackV;
 	
-	//init Dijkstra algorithm
+	//초기화
 	public void init(int dataI[][])
 	{
-		data=dataI;//set data with Inputed data
-		n = data.length;//The number of Vertexes
+		data=dataI;
+		n = data.length;
 		
-		//init each arrays size
-		dis = new int[n];//distance
-		visit = new boolean[n];//visited
-		prev = new int[n];//previous
-		stack = new int[n];//stack
+		
+		dis = new int[n];
+		visit = new boolean[n];
+		prev = new int[n];
+		stack = new int[n];
 		stackV=new Vector<Integer>();
 		sValues = new String[n];
 		routeStr = "";
