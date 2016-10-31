@@ -6,7 +6,7 @@ package coex.vo;
  * 각 장소와 연결된 선호도 VO
  */
 public class Preference {
-	private int pref_no;
+	private int pref_no;	//선호도 번호(식별자)
 	private int pref_10; 	//10대 선호도
 	private int pref_20;	//20대 선호도
 	private int pref_30;	//30대 선호도

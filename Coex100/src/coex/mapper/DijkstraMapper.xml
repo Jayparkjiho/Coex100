@@ -3,7 +3,7 @@
 <mapper namespace="DijkstraMapper">
 
 <select id="getAdjList" resultType="String">
-SELECT ADJLIST FROM ADJ_TABLE ORDER BY NODENAME
+SELECT ADJLIST FROM COEX_ADJ_TABLE ORDER BY NODENAME
 </select>
 
 

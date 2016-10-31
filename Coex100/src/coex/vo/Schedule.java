@@ -10,16 +10,17 @@ public class Schedule {
 	private String schedule_time_list;	//스케줄 시간 목록
 	private String schedule_node_list;	//스케줄 노드 목록
 	private String schedule_time_table;	//스케줄 시간표{000001111222233334444555556666}
+	private String schedule_img_list;   //스케줄 그림 목록
 	private int prefno;					//스케줄 선호도 식별번호 //최종적으로 이 스케줄이 가지고 있는 모든 일정의 선호도의 값들을 합산시킨다.
 	private float schedule_eval;		//스케줄 평가
-	private int answer;					//스케줄을 만들 때 사용자가 넣었던 답변
+	private int answerno;				//스케줄을 만들 때 사용자가 넣었던 답변의 번호
 	
 	public Schedule() {
 	}
 
 	public Schedule(int schedule_no, String mem_id, String schedule_date, String schedule_start_time,
 			String schedule_end_time, String schedule_event_list, String schedule_time_list, String schedule_node_list,
-			String schedule_time_table, int prefno, float schedule_eval, int answer) {
+			String schedule_time_table, String schedule_img_list, int prefno, float schedule_eval, int answerno) {
 		super();
 		this.schedule_no = schedule_no;
 		this.mem_id = mem_id;
@@ -30,9 +31,10 @@ public class Schedule {
 		this.schedule_time_list = schedule_time_list;
 		this.schedule_node_list = schedule_node_list;
 		this.schedule_time_table = schedule_time_table;
+		this.schedule_img_list = schedule_img_list;
 		this.prefno = prefno;
 		this.schedule_eval = schedule_eval;
-		this.answer = answer;
+		this.answerno = answerno;
 	}
 
 	public int getSchedule_no() {
@@ -107,6 +109,14 @@ public class Schedule {
 		this.schedule_time_table = schedule_time_table;
 	}
 
+	public String getSchedule_img_list() {
+		return schedule_img_list;
+	}
+
+	public void setSchedule_img_list(String schedule_img_list) {
+		this.schedule_img_list = schedule_img_list;
+	}
+
 	public int getPrefno() {
 		return prefno;
 	}
@@ -123,12 +133,12 @@ public class Schedule {
 		this.schedule_eval = schedule_eval;
 	}
 
-	public int getAnswer() {
-		return answer;
+	public int getAnswerno() {
+		return answerno;
 	}
 
-	public void setAnswer(int answer) {
-		this.answer = answer;
+	public void setAnswerno(int answerno) {
+		this.answerno = answerno;
 	}
 
 	@Override
@@ -137,9 +147,9 @@ public class Schedule {
 				+ ", schedule_start_time=" + schedule_start_time + ", schedule_end_time=" + schedule_end_time
 				+ ", schedule_event_list=" + schedule_event_list + ", schedule_time_list=" + schedule_time_list
 				+ ", schedule_node_list=" + schedule_node_list + ", schedule_time_table=" + schedule_time_table
-				+ ", prefno=" + prefno + ", schedule_eval=" + schedule_eval + ", answer=" + answer + "]";
+				+ ", schedule_img_list=" + schedule_img_list + ", prefno=" + prefno + ", schedule_eval=" + schedule_eval
+				+ ", answerno=" + answerno + "]";
 	}
-	
-	
 
+	
 }

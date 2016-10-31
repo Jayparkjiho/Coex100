@@ -14,6 +14,9 @@ create table member_tb(
 
 create sequence seq_pref_no;
 
+create sequence seq_schedule_no;
+
+
 create table CoexPREFERENCE_TB(
    PREFNO number(10) primary key,
    PREF_10 number(10) default 0,
