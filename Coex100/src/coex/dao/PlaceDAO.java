@@ -98,7 +98,7 @@ public class PlaceDAO {
 			if (place_no < 20000) {
 				place = sqlSession.selectOne("PlaceMapper.findPlace", place_no);
 			}else{
-				place_no = sqlSession.selectOne("placeMapper.findAction", action_no);
+				place_no = sqlSession.selectOne("PlaceMapper.findAction", action_no);
 				place = sqlSession.selectOne("PlaceMapper.findPlace", place_no);
 			}
 		} catch (Exception e) {

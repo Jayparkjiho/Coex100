@@ -21,8 +21,11 @@ public class AnswerAction extends ActionSupport implements SessionAware {
 	Schedule schedule;
 	String[] eventList;
 	String[] startTimeList;	
-	ArrayList<Place> placeList;
+	ArrayList<Place> placeList = new ArrayList<>();
 	Place place;
+	ArrayList<String> timeList = new ArrayList<>();;
+	
+	
 	/*public String question1(){
 		session.put("answer", this.answer);
 		
@@ -83,30 +86,36 @@ public class AnswerAction extends ActionSupport implements SessionAware {
 	public String schedule(){
 		ScheduleDAO dao = new ScheduleDAO();
 		schedule = dao.findSchedule(9999);
-		System.out.println(111);
 		eventList = schedule.getSchedule_event_list().split(",");
-		System.out.println(eventList[0]);
-		System.out.println(eventList[1]);
-		System.out.println(eventList[2]);
 		startTimeList = schedule.getSchedule_time_list().split(",");
-		System.out.println(startTimeList[0]);
-		System.out.println(startTimeList[1]);
-		System.out.println(startTimeList[2]);
-		placeList = new ArrayList<>();
 		PlaceDAO placeDao = new PlaceDAO();
-		
 		for (int i = 0; i < eventList.length; i++) {
 			place = placeDao.findPlace(Integer.parseInt(eventList[i]));
 			placeList.add(place);
-		}
-		for (Place place : placeList) {
-			System.out.println(place);
+			timeList.add(startTimeList[i]);
 		}
 		return SUCCESS;
 	}
 	
 	
 	
+	
+
+	public ArrayList<Place> getPlaceList() {
+		return placeList;
+	}
+
+	public void setPlaceList(ArrayList<Place> placeList) {
+		this.placeList = placeList;
+	}
+
+	public ArrayList<String> getTimeList() {
+		return timeList;
+	}
+
+	public void setTimeList(ArrayList<String> timeList) {
+		this.timeList = timeList;
+	}
 
 	public Schedule getSchedule() {
 		return schedule;
@@ -144,5 +153,7 @@ public class AnswerAction extends ActionSupport implements SessionAware {
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+	
+	
 }
 
