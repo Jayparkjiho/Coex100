@@ -6,12 +6,45 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('a[title]').tooltip();
+	});
+	
+	var placeList = '';
+	var timeList = '';
+	var output = '';
+	
+	$.ajax({
+    	url:'getData',
+    	method:'post',
+    	datatype:'json',
+    	success: function(response){
+    		placeList = response.placeList;
+    		timeList = response.timeList;
+    		
+    		$.each(placeList, function(index, item){
+    			console.log(item.place_no);
+    			console.log(index);
+    			output += "<li class='active'>"
+    			output +=	"<a class="+item.place_no+" href=#" +item.place_name+ " data-toggle='tab' title= 'test'>" 
+    			output +=		"<span class='round-tabs one'>" 
+    			output +=		"<i class='glyphicon glyphicon-home'></i>"
+    			output +=		"</span>"
+    			output +=	"</a>"
+    			output +="</li>"
+    			
+    		}); 
+    		$('#myTab').append(output);
+    		/* $.each(timeList, function(index, item){
+    			console.log(item);
+    		}); */
+    		
+    	
+    	}
 	});
 </script>
 
@@ -250,8 +283,9 @@ left: 35%;
 				<div class="board-inner">
 					<ul class="nav nav-tabs" id="myTab">
 						<div class="liner"></div>
-						<li class="active">
-							<a href="#home" data-toggle="tab" title="welcome"> 
+						
+						<!-- <li class="active">
+							<a class="Test" href="#home" data-toggle="tab" title="welcome"> 
 								<span class="round-tabs one"> 
 								<i class="glyphicon glyphicon-home"></i>
 								</span>
@@ -295,12 +329,12 @@ left: 35%;
 									<i class="glyphicon glyphicon-ok"></i>
 								</span>
 							</a>
-						</li>
+						</li> -->
 
 					</ul>
 				</div>
 
-				<div class="tab-content">
+				<!-- <div class="tab-content">
 					<div class="tab-pane fade in active" id="home">
 						<h3 class="head text-center">
 							Welcome to Bootsnipp<sup>™</sup> <span style="color: #f48260;">♥</span>
@@ -359,7 +393,7 @@ left: 35%;
 						<p class="narrow text-center">Lorem ipsum dolor sit amet, his
 							ea mollis fabellas principes. Quo mazim facilis tincidunt ut,
 							utinam saperet facilisi an vim.</p>
-					</div>
+					</div> -->
 					
 					<div class="clearfix"></div>
 				</div>

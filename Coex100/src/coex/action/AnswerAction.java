@@ -94,6 +94,7 @@ public class AnswerAction extends ActionSupport implements SessionAware {
 			placeList.add(place);
 			timeList.add(startTimeList[i]);
 		}
+		System.out.println(placeList.toString());
 		return SUCCESS;
 	}
 	

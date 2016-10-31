@@ -91,7 +91,6 @@ public class PlaceDAO {
 	 */
 	public Place findPlace(int place_no){
 		int action_no = place_no;
-		System.out.println(place_no);
 		Place place = null;
 		try {
 			sqlSession = sqlSessionFactory.openSession();

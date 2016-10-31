@@ -57,7 +57,11 @@
     </action>
     
      <action name="schedule" class="coex.action.AnswerAction" method="schedule">
-    	<result>/schedule.jsp</result>
+    	<result name="success">/schedule.jsp</result>
+    </action>
+    
+    <action name="getData" class="coex.action.AnswerAction" method="schedule">
+    	<result type="json"></result>
     </action>
     
     <action name="List">
