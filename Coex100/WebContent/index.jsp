@@ -214,7 +214,7 @@
 			      <a href="main.action" class="closebtn" onclick='closeNav()'>x</a>
 			      <a href="insertPlaceForm.action">가계 정보 입력</a>
 			      <a href="question1.action">정보입력질문</a>
-			      <a href="List.action">상점리스트</a>
+			      <a href="placeList2.action">상점리스트</a>
 			      <a href="#">Contact</a>
    			</div><!-- 사이드네비 -->
       
