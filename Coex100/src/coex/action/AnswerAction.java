@@ -85,7 +85,7 @@ public class AnswerAction extends ActionSupport implements SessionAware {
 	//스케줄 테스트
 	public String schedule(){
 		ScheduleDAO dao = new ScheduleDAO();
-		schedule = dao.findSchedule(9999);
+		schedule = dao.findSchedule(10000);
 		eventList = schedule.getSchedule_event_list().split(",");
 		startTimeList = schedule.getSchedule_time_list().split(",");
 		PlaceDAO placeDao = new PlaceDAO();

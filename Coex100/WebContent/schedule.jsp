@@ -17,6 +17,8 @@ $(function(){
 	var placeList = '';
 	var timeList = '';
 	var output = '';
+	var output2 = '';
+	var place_name = '';
 	
 	$.ajax({
     	url:'getData',
@@ -27,29 +29,67 @@ $(function(){
     		timeList = response.timeList;
     		
     		$.each(placeList, function(index, item){
-    			console.log(item.place_no);
-    			console.log(index);
+    			var place_category = item.place_category.split( '#' );
+    			place_category = place_category[1];
+
     			if (index == 0) {
     				output += "<li class='active'>"
-				}
+					output2 += "<div class='tab-pane fade in active' id="+item.place_name+">"
+    			}
     			else{
     				output += "<li>"
+    				output2 += "<div class='tab-pane fade' id="+item.place_name+">"
     			}
-    			output +=	"<a class="+item.place_no+" href=#" +item.place_name+ " data-toggle='tab' title=test>"  //이미지 입혀야 함
-    			output +=		"<span class='round-tabs one'>" 
-    			output +=		"<i class='glyphicon glyphicon-home'></i>"
+    			output +=	"<a class="+item.place_no+" href=#" +item.place_name+ " data-toggle='tab' title=" + timeList[index] + ">"  //이미지 입혀야 함
+    			output +=		"<span class='round-tabs one"+index+"'>" 
+    			
+    			if (place_category.length == 3) {
+    				output += "<h3 class='category3'>"+place_category+"</h3>"
+				} else if (place_category.length == 4) {
+					output += "<h3 class='category4'>"+place_category+"</h3>"
+				} else {
+					place_category = place_category.substring(0,3);
+					output += "<h3 class='category3'>"+place_category+"</h3>"
+				}
+    			
     			output +=		"</span>"
     			output +=	"</a>"
     			output +="</li>"
-    			$('a title').attr('src',item.place_photo_name);
+    			/* $('a title').attr('src',item.place_photo_name); */
+    			
+    			
+    			
+				output2 += 	"<h3 class='head text-center'>"+ item.place_name +"("+ timeList[index] + ")" +"</h3>"
+				output2 += "<p class='narrow text-center'>"+ item.place_info + "</p>"
+
+				output2 += "<p class='text-center'>"
+				
+				/* 가게이름 공란 제거 - 이미지 제목 때문임 */
+				place_name = item.place_name;
+				place_name = place_name.replace(/\s/gi, ''); 
+				
+				output2 +=	"<img class='place_photo' src='images/"+place_name+".jpg'>" 
+				output2 +=  "</p>"
+				output2 +=  "</div>"
+    			
     		}); 
     		
     		$('#myTab').append(output);
+    		$('.tab-content').append(output2);
     		
-    		if (placeList.length == 3) {
-				var size = (100/3) + '%';
+			
+    		
+    		for (var int = 0; int < placeList.length; int++) {
+    			var size = (100/placeList.length) + '%';
     			$('.nav-tabs > li').css('width', size);
 			}
+    		/* if (placeList.length == 3) {
+				var size = (100/3) + '%';
+    			$('.nav-tabs > li').css('width', size);
+			}else if (placeList.length == 4) {
+				var size = (100/4) + '%';
+    			$('.nav-tabs > li').css('width', size);
+			} */
     		
     		/* $.each(timeList, function(index, item){
     			console.log(item);
@@ -63,6 +103,17 @@ $(function(){
 <style type="text/css">
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
 /* written by riliwan balogun http://www.facebook.com/riliwan.rabo*/
+
+span > .category3{
+	font-size: 20px !important; 
+	margin-top: 23px !important;
+}
+
+span > .category4{
+	font-size: 16px !important;
+	margin-top: 26px !important;
+}
+
 .board{
     width: 75%;
 margin: 60px auto;
@@ -94,7 +145,7 @@ p.narrow{
     height: 2px;
     background: #ddd;
     position: absolute;
-    width: 80%;
+    width: 75%;
     margin: 0 auto;
     left: 0;
     right: 0;
@@ -124,51 +175,61 @@ span.round-tabs{
     font-size: 25px;
 }
 
-span.round-tabs.one{
+span.round-tabs.one0{
     color: rgb(34, 194, 34);border: 2px solid rgb(34, 194, 34);
 }
 
-li.active span.round-tabs.one{
+li.active span.round-tabs.one0{
     background: #fff !important;
     border: 2px solid #ddd;
     color: rgb(34, 194, 34);
 }
 
-span.round-tabs.two{
+span.round-tabs.one1{
     color: #febe29;border: 2px solid #febe29;
 }
 
-li.active span.round-tabs.two{
+li.active span.round-tabs.one1{
     background: #fff !important;
     border: 2px solid #ddd;
     color: #febe29;
 }
 
-span.round-tabs.three{
+span.round-tabs.one2{
     color: #3e5e9a;border: 2px solid #3e5e9a;
 }
 
-li.active span.round-tabs.three{
+li.active span.round-tabs.one2{
     background: #fff !important;
     border: 2px solid #ddd;
     color: #3e5e9a;
 }
 
-span.round-tabs.four{
+span.round-tabs.one3{
     color: #f1685e;border: 2px solid #f1685e;
 }
 
-li.active span.round-tabs.four{
+li.active span.round-tabs.one3{
     background: #fff !important;
     border: 2px solid #ddd;
     color: #f1685e;
 }
 
-span.round-tabs.five{
+span.round-tabs.one4{
+    color: #33FF33;border: 2px solid #33FF33;
+}
+
+li.active span.round-tabs.one4{
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: #33FF33;
+}
+
+span.round-tabs.one5{
     color: #999;border: 2px solid #999;
 }
 
-li.active span.round-tabs.five{
+li.active span.round-tabs.one5{
     background: #fff !important;
     border: 2px solid #ddd;
     color: #999;
@@ -284,6 +345,31 @@ left: 35%;
     }
 }
 
+.place_photo{
+	max-height: 137px; 
+	max-width: 210px;
+}
+
+.navbar-nav.navbar-right .btn{
+    position: relative;
+    z-index: 2;
+    padding: 4px 20px;
+    margin: 10px auto;
+    transition: transform 0.3s;
+}
+
+.btn.btn-outline {
+    background-color: transparent;
+}
+.btn.btn-circle {
+    border-radius: 50px;
+}
+.board-footer{
+	top: 63%;
+    left: 64%;
+    position: absolute;
+}
+
 </style>
 </head>
 <body>
@@ -292,125 +378,32 @@ left: 35%;
             <div class="row">
                 <div class="board">
                     <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+				<!-- 스케줄 시간별 순서 -->
 				<div class="board-inner">
 					<ul class="nav nav-tabs" id="myTab">
 						<div class="liner"></div>
 						
-						<!-- <li class="active">
-							<a class="Test" href="#home" data-toggle="tab" title="welcome"> 
-								<span class="round-tabs one"> 
-								<i class="glyphicon glyphicon-home"></i>
-								</span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#profile" data-toggle="tab" title="profile">
-								<span class="round-tabs two"> 
-								<i class="glyphicon glyphicon-user"></i>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="#messages" data-toggle="tab" title="bootsnipp goodies">
-								<span class="round-tabs three">
-									<i class="glyphicon glyphicon-gift"></i>
-								</span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#settings" data-toggle="tab" title="blah blah">
-								<span class="round-tabs four"> 
-									<i class="glyphicon glyphicon-comment"></i>
-							</span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#doner" data-toggle="tab" title="completed">
-								<span class="round-tabs five"> 
-									<i class="glyphicon glyphicon-ok"></i>
-								</span>
-							</a>
-						</li>
-
-						<li>
-							<a href="#doner" data-toggle="tab" title="completed">
-								<span class="round-tabs five"> 
-									<i class="glyphicon glyphicon-ok"></i>
-								</span>
-							</a>
-						</li> -->
+						
 
 					</ul>
 				</div>
-
+				<!-- 각 장소별 설명 -->
 				<div class="tab-content">
-					<div class="tab-pane fade in active" id="자라홈">
-						<h3 class="head text-center">
-							Welcome to Bootsnipp<sup>™</sup> <span style="color: #f48260;">♥</span>
-						</h3>
-						<p class="narrow text-center">Lorem ipsum dolor sit amet, his
-							ea mollis fabellas principes. Quo mazim facilis tincidunt ut,
-							utinam saperet facilisi an vim.</p>
-
-						<p class="text-center">
-							<a href="" class="btn btn-success btn-outline-rounded green">
-								start using bootsnipp 
-								<span style="margin-left: 10px;" class="glyphicon glyphicon-send"></span>
-							</a>
-						</p>
-					</div>
 					
-					<div class="tab-pane fade" id="#1">
-						<h3 class="head text-center">
-							Create a Bootsnipp<sup>™</sup> Profile
-						</h3>
-						<p class="narrow text-center">Lorem ipsum dolor sit amet, his
-							ea mollis fabellas principes. Quo mazim facilis tincidunt ut,
-							utinam saperet facilisi an vim.</p>
-
-						<p class="text-center">
-							<a href="" class="btn btn-success btn-outline-rounded green">
-								create your profile 
-								<span style="margin-left: 10px;" class="glyphicon glyphicon-send"></span>
-							</a>
-						</p>
-					</div>
-					
-					<div class="tab-pane fade" id="messages">
-						<h3 class="head text-center">Bootsnipp goodies</h3>
-						<p class="narrow text-center">Lorem ipsum dolor sit amet, his
-							ea mollis fabellas principes. Quo mazim facilis tincidunt ut,
-							utinam saperet facilisi an vim.</p>
-
-						<p class="text-center">
-							<a href="" class="btn btn-success btn-outline-rounded green">
-								start using bootsnipp 
-								<span style="margin-left: 10px;" class="glyphicon glyphicon-send"></span>
-							</a>
-						</p>
-					</div>
-					
-					<div class="tab-pane fade" id="doner">
-						<div class="text-center">
-							<i class="img-intro icon-checkmark-circle"></i>
-						</div>
-						<h3 class="head text-center">
-							thanks for staying tuned! 
-							<span style="color: #f48260;">♥</span>
-							Bootstrap
-						</h3>
-						<p class="narrow text-center">Lorem ipsum dolor sit amet, his
-							ea mollis fabellas principes. Quo mazim facilis tincidunt ut,
-							utinam saperet facilisi an vim.</p>
-					</div> 
 					
 					<div class="clearfix"></div>
 				</div>
-
+			
+				<!-- 보드 footer 이동하는 버튼 -->
+				<div class="board-footer">
+					<a class="btn btn-default btn-outline btn-circle collapsed" href="#nav-collapse2" >직접만들기</a>
+					<a class="btn btn-default btn-outline btn-circle collapsed" href="#nav-collapse2" >저장하기</a>
+			
+				</div>
+			
 			</div>
+			
+			
 </div>
 </div>
 </section>
