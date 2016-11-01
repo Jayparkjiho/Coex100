@@ -7,15 +7,14 @@ import coex.util.MybatisConfig;
 import coex.vo.Preference;
 
 public class PreferenceDAO {
-	
+
 	SqlSessionFactory sqlSessionFactory = MybatisConfig.getSqlSessionFactory();
 	SqlSession sqlSession;
 
-	
-	//insertPreference
-	public void insertPreference(Preference preference){
+	// insertPreference
+	public void insertPreference(Preference preference) {
 		System.out.println(preference.toString());
-		try{
+		try {
 			sqlSession = sqlSessionFactory.openSession();
 			sqlSession.insert("PreferenceMapper.insert", preference);
 			sqlSession.commit();
@@ -28,27 +27,44 @@ public class PreferenceDAO {
 			}
 		}
 	}
-	
-	//findPreference
-	public Preference findPreference(int prefNo){
+
+	// findPreference
+	public Preference findPreference(int prefNo) {
 		System.out.println(prefNo + "찾기");
 		Preference pref = null;
-		try{
+		try {
 			sqlSession = sqlSessionFactory.openSession();
-			pref = sqlSession.selectOne("PreferenceMapper.findPref",prefNo);
-		}catch(Exception e){
+			pref = sqlSession.selectOne("PreferenceMapper.findPref", prefNo);
+		} catch (Exception e) {
 			e.printStackTrace();
-		}finally{
-			if(sqlSession!=null){
+		} finally {
+			if (sqlSession != null) {
 				sqlSession.close();
 			}
 		}
 		return pref;
 	}
-	
-	//updatePreference
-	public void updatePreference(Preference pref){
-		try{
+	// getSeqNo
+
+	public int getPrefNo() {
+		int result = 0;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			result = sqlSession.selectOne("PreferenceMapper.getPrefNo");
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return result;
+	}
+
+	// updatePreference
+	public void updatePreference(Preference pref) {
+		try {
 			sqlSession = sqlSessionFactory.openSession();
 			sqlSession.update("PreferenceMapper.update", pref);
 			sqlSession.commit();

@@ -32,33 +32,44 @@
 		pref_30 = #{pref_30},
 		pref_40 = #{pref_40},
 		pref_male = #{pref_male},
-		pref_female = #{pref_female},
+		pref_female =
+		#{pref_female},
 		pref_conference = #{pref_conference},
-		pref_shopping = #{pref_shopping},
+		pref_shopping =
+		#{pref_shopping},
 		pref_date = #{pref_date},
 		pref_meal = #{pref_meal},
 		pref_culture = #{pref_culture},
 		pref_etc = #{pref_etc},
-		pref_single = #{pref_single},
+		pref_single =
+		#{pref_single},
 		pref_two = #{pref_two},
 		pref_three = #{pref_three},
 		pref_four = #{pref_four},
 		pref_five = #{pref_five},
-		pref_ten   = #{pref_ten},
+		pref_ten =
+		#{pref_ten},
 		pref_10_11 = #{pref_10_11},
 		pref_11_12 = #{pref_11_12},
 		pref_12_13 = #{pref_12_13},
 		pref_13_14 = #{pref_13_14},
-		pref_14_15 = #{pref_14_15},
+		pref_14_15 =
+		#{pref_14_15},
 		pref_15_16 = #{pref_15_16},
 		pref_16_17 = #{pref_16_17},
 		pref_17_18 = #{pref_17_18},
 		pref_18_19 = #{pref_18_19},
-		pref_19_20 = #{pref_19_20},
+		pref_19_20 =
+		#{pref_19_20},
 		pref_20_21 = #{pref_20_21},
 		pref_21_22 = #{pref_21_22}
-		
+
 		where pref_no = #{pref_no}
 	</update>
+
+	<select id="getPrefNo" resultType="int">
+		SELECT LAST_NUMBER FROM SEQ where sequence_name='SEQ_PREF_NO'
+	</select>
+
 
 </mapper>

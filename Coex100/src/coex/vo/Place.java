@@ -19,7 +19,7 @@ public class Place {
 	private int place_runtime_min;
 	private int place_runtime_max;
 	private String place_photo_name;
-	private int place_type;
+	private int place_type;//0:기타,1:박람회,2:문화 여가,3:식당,4:디저트/카페
 	private int pref_no;
 	
 	public Place(){}

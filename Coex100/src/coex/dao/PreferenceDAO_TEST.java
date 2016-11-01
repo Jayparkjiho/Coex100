@@ -8,10 +8,15 @@ public class PreferenceDAO_TEST {
 		PreferenceDAO prefDAO = new PreferenceDAO();
 		Preference pref = null;
 		pref = prefDAO.findPreference(20001); 
-		pref.setPref_10(20);
+		System.out.println(pref.toString());
+		/*pref.setPref_10(20);
 		prefDAO.updatePreference(pref);
 		pref = prefDAO.findPreference(20001); 
-		System.out.println(pref.toString());
+		System.out.println(pref.toString());*/
+		
+		int prefNo = prefDAO.getPrefNo();
+		System.out.println(prefNo);
 	}//TEST SUCCEED
 
 }
+

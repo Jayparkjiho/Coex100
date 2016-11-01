@@ -13,6 +13,7 @@ public class PlaceAndPrefDAO {
 	SqlSession sqlSession;
 
 	public List<PlaceAndPref> getAllList() {
+		System.out.println("PlaceAndPrefDAO getAllList");
 		List<PlaceAndPref> placeAndPrefs = null;
 		try{
 			sqlSession = sqlSessionFactory.openSession();

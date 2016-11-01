@@ -115,4 +115,19 @@ public class PlaceDAO {
 		}
 		return place;
 	}
+	
+	public Place selectPlace(int place_no){
+		Place p = null;
+		try{
+			sqlSession = sqlSessionFactory.openSession();
+			p = sqlSession.selectOne("PlaceMapper.findPlace",place_no);
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return p;
+	}
 }
