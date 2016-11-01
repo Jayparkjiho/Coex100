@@ -76,7 +76,9 @@
     	<result name="success" type="redirect">main.action</result>
     </action>
     
-    
+    <action name="placeList2">
+    	<result name="success">placeList2.jsp</result>
+    </action>
     
     
 

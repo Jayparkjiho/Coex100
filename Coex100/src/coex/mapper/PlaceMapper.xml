@@ -15,12 +15,48 @@
 		select * from coexplace_tb where place_category = %#{category}%
 	</select>
 	
-	<select id="selectAll" resultType="Place">
+	<select id="placeList" parameterType="map" resultType="Place">
 		select * from coexplace_tb
+			<if test="place_type lt 9">
+			where
+				<if test="place_type == 0">
+				place_type = #{place_type}
+				</if>
+				<if test="place_type == 1">
+				place_type = #{place_type}
+				</if>
+				<if test="place_type == 2">
+				place_type = #{place_type}
+				</if>
+				<if test="place_type == 3">
+				place_type = #{place_type}
+				</if>
+				<if test="place_type == 4">
+				place_type = #{place_type}
+				</if>
+			</if>
 	</select>
 	
-	<select id="countAll" resultType="int">
+	<select id="countAll" parameterType="Map" resultType="int">
 		select count(*) from coexplace_tb
+		<if test="place_type lt 9">
+		where
+			<if test="place_type == 0">
+			place_type = #{place_type}
+			</if>
+			<if test="place_type == 1">
+			place_type = #{place_type}
+			</if>
+			<if test="place_type == 2">
+			place_type = #{place_type}
+			</if>
+			<if test="place_type == 3">
+			place_type = #{place_type}
+			</if>
+			<if test="place_type == 4">
+			place_type = #{place_type}
+			</if>
+		</if>
 	</select>
 	
 	<select id="findPlace" parameterType="int" resultType="Place">

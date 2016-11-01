@@ -42,16 +42,20 @@ public class PlaceDAO {
 	 * @param countPerPage
 	 * @return ArrayList<Place>
 	 */
-	public ArrayList<Place> getList(int startRecord, int countPerPage){
+	public ArrayList<Place> getList(int place_type, int startRecord, int countPerPage){
 		System.out.println("dao다요");
 		ArrayList P_list = new ArrayList<>();
 		System.out.println(startRecord + " " + countPerPage);
+		
+		HashMap<String, Integer> map = new HashMap<>();
+		map.put("place_type", place_type);
+		
 		//결과 레코드 중 읽을 위치와 개수
 		RowBounds bound = new RowBounds(startRecord, countPerPage);
 		
 		try{
 			sqlSession = sqlSessionFactory.openSession();
-			P_list =  (ArrayList) sqlSession.selectList("PlaceMapper.selectAll", null, bound);
+			P_list =  (ArrayList) sqlSession.selectList("PlaceMapper.placeList", map, bound);
 			System.out.println("어레이사이즈"+P_list.size());
 		}catch(Exception e){
 			e.printStackTrace();
@@ -68,12 +72,14 @@ public class PlaceDAO {
 	 * 상점갯수의 전체갯수를 호출하는 메소드
 	 * @return int result
 	 */
-	public int countAll(){
-		System.out.println("daocountAll()함수 실행");
+	public int countAll(int place_type){
+		System.out.println("daocountAll()함수 실행" + place_type);
 		int result = 0;
+		HashMap<String, Integer> map = new HashMap<>();
+		map.put("place_type", place_type);
 		try {
 			sqlSession = sqlSessionFactory.openSession();
-			result = sqlSession.selectOne("PlaceMapper.countAll");
+			result = sqlSession.selectOne("PlaceMapper.countAll", map);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {

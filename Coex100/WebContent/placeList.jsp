@@ -26,10 +26,10 @@
 
 <div class="page">
 	<div class="category">
-	<a class="cate" value="all">전체</a>
-	<a class="cate" id="F&B">F&B</a>
-	<a class="cate">패션의류</a>
-	<a class="cate">문화컨텐츠</a>
+	<input type="button" class="all" name="aa" value="9"/>전체
+	<input type="button" class="dkdk" name="aa" value="0"/>F&B
+	<input type="button" class="b" name="aa" value="1"/>패션의류
+	<input type="button" class="c" name="aa" value="2"/>문화컨텐츠
 	<a class="cate">패션잡화</a>
 	<a class="cate">뷰티</a>
 	<a class="cate">라이프스타일</a>
@@ -49,36 +49,58 @@
 
 <script src="script/jquery-3.1.0.min.js"></script>
 <script>
-    	var currentPage = '';
+    var currentPage = '';
+    var place_type='';
 
-	$('a').on("click",function() {
-		currentPage = 1;
-    	console.log("처음 로딩 시 현재페이지: " + currentPage);
-    	/*화면 준비 후 AJAX로 로그 로딩 */
-    	/* var member_id = '<s:property value="%{#session.login.member_id}"/>'
-    	console.log('세션에 저장된 member_id : ' + member_id);
-    	var data = {
-       		'member_id' : member_id
-    	}; */
-    
-   		$.ajax({
-       		url : 'getList',
-       		type : 'post',
-       		data : {
-          		/* 'member_id' : member_id, */
-          		'currentPage' : currentPage
-       		},
-       		success : function(data) {
-          		$(data.list_place).each(function(index, item) {
-             		var np = addLogContent(item);
-             		$('.cardList').append(np);
-             		/* var log_id = item.log_id;
-             		$('.'+log_id).css('background-image','url(img/'+item.member_id+ '/' + item.log_id+'/'+item.main_photo_name + ')');
-             		*/
-          		}); 
-       		}
-    	}); 
-	});
+    $(function(){
+    	
+		$('input[type=button]').on('click',function() {
+			currentPage = 1;
+	    	console.log("처음 로딩 시 현재페이지: " + currentPage);
+	    	/*화면 준비 후 AJAX로 로그 로딩 */
+	    	/* var member_id = '<s:property value="%{#session.login.member_id}"/>'
+	    	console.log('세션에 저장된 member_id : ' + member_id);
+	    	var data = {
+	       		'member_id' : member_id
+	    	}; */
+	    	var place_type = '';
+	    	var button = document.getElementsByName("aa");
+	    	/* for (var i = 0; i < button.length; i++) {
+				if (button[i] == 'onclick') {
+					place_type = button[i].value;
+				}
+			} 
+	    	if (place_type == '') {
+				place_type = 9;
+			}
+	    	
+	    	*/
+			
+			place_type = $(this).val();
+	    	    	
+	    	
+	    	
+	    	alert(place_type);
+	    	
+	   		$.ajax({
+	       		url : 'getList',
+	       		type : 'post',
+	       		data : {
+	          		'place.place_type' : place_type,
+	       			'currentPage' : currentPage
+	       		},
+	       		success : function(data) {
+	          		$(data.list_place).each(function(index, item) {
+	             		var np = addLogContent(item);
+	             		$('.cardList').append(np);
+	             		/* var log_id = item.log_id;
+	             		$('.'+log_id).css('background-image','url(img/'+item.member_id+ '/' + item.log_id+'/'+item.main_photo_name + ')');
+	             		*/
+	          		}); 
+	       		}
+	    	});//ajax 
+		});//button
+	});//onload
 
 	
 	/*$('a').on("click",function(){
@@ -120,8 +142,10 @@
         var maxHeight = $(document).height();
         var currentScroll = $(window).scrollTop() + $(window).height();
 
-
-        if (maxHeight <= currentScroll + 100) {
+        console.log(maxHeight); //6000
+        console.log(currentScroll); //증가 값
+        
+        if (maxHeight <= currentScroll + 10) {
            /* AJAX를 연결하여 데이터를 받아옵니다.*/
 
            currentPage += 1; // 다음페이지가 되야 하므로 현재 페이지+1
@@ -134,17 +158,19 @@
               type : 'post',
               data : {
                  /* 'member_id' : member_id, */
+                 'place.place_type' : place_type,
                  'currentPage' : currentPage
               },
               success : function(data) {
                  $(data.list_place).each(function(index, item) {
+                	console.log(item);
                     var np = addLogContent(item);
                     $('.cardList').append(np);
                  });
               }
-           });
-        }
-     });
+           });//ajax
+        }//if
+     });//document
 	
 	var addLogContent = function(list_place) {
         /* var log_tag = '';
