@@ -49,7 +49,7 @@
     
     <!-- 활동일정까지 입력받는 최종 answer객체를 만들어 데이터베이스에 저장하는 xml태그 -->
     <action name="insertAnswer" class="coex.action.AnswerAction" method="insertAnswer">
-    	<result name="success">/questionForm.jsp</result>
+    	<result name="success">/schedule.jsp</result>
     </action>
     
     <action name="insertPlaceForm">

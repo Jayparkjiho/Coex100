@@ -151,6 +151,14 @@ select * from coexplace_tb
 
 insert into coexplace_tb values(seq_place_no.nextval, '#1', 1,1,1,1,1,1,1,1,1,1,1,1,1)
 
+SELECT LAST_NUMBER FROM SEQ where sequence_name='SEQ_SCHEDULE_NO'
+DROP SEQUENCE SEQ_SCHEDULE_NO
+CREATE SEQUENCE SEQ_SCHEDULE_NO2
+SELECT SEQ_SCHEDULE_NO.nextval from dual
+
+SELECT * FROM COEX_SCHEDULE_TB
+
+SELECT * from seq;
 
 ALTER TABLE COEXPREFERENCE_TB
 ADD  PREF_MEAL number(10)

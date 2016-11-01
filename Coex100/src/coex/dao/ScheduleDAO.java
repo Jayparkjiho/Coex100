@@ -46,6 +46,36 @@ public class ScheduleDAO {
 		return sche;
 	}
 	
+	public int getSeqNo(){
+		int result=0;
+		try{
+			sqlSession = sqlSessionFactory.openSession();
+			result = sqlSession.selectOne("ScheduleMapper.getSeqNo");
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return result;
+	}
+	
+	public int getLastNo(){
+		int result=0;
+		try{
+			sqlSession = sqlSessionFactory.openSession();
+			result = sqlSession.selectOne("ScheduleMapper.getLastNo");
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return result;
+	}
+	
 	//updateSchedule
 	public void updateSchedule(Schedule schedule){
 		try{

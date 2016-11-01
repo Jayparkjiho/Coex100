@@ -5,7 +5,6 @@
 
 	<insert id="insert" parameterType="Preference">
 		insert into COEXPREFERENCE_TB values(
-		<!-- TODO: 시퀀스 만들어야함 -->
 		seq_pref_no.nextval, #{pref_10}, #{pref_20}, #{pref_30}, #{pref_40},
 		#{pref_male}, #{pref_female},
 		#{pref_conference}, #{pref_shopping},
@@ -14,7 +13,7 @@
 		#{pref_five}, #{pref_ten},
 		#{pref_10_11}, #{pref_11_12}, #{pref_12_13},
 		#{pref_13_14}, #{pref_14_15}, #{pref_15_16}, #{pref_16_17},
-		#{pref_17_18}, #{pref_18_19}, #{pref_19_20}, #{pref_20_21})
+		#{pref_17_18}, #{pref_18_19}, #{pref_19_20}, #{pref_20_21},#{pref_21_22})
 	</insert>
 
 	<!-- PREFNO를 비교해 한개만 가져오는 예제 -->

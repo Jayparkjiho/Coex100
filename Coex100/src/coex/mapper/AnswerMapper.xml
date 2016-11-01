@@ -9,23 +9,22 @@
 			#{answer_head_count}, #{answer_traffic}, #{answer_meal}, #{answer_scount}, 
 	<choose>
 		<when test="answer_purpose_no != 0 or answer_purpose_no != 3">
-			'0', '0', 
+			0, '0', '0', 0,
 		</when>
 		<when test="answer_purpose_no == 0 or answer_purpose_no == 3">
-			#{answer_purpose_start}, #{answer_purpose_end}, 
+			#{answer_sone_eventno}, #{answer_sone_start}, #{answer_sone_end}, #{answer_sone_node},
 		</when>
 	</choose>
 	<choose>
 		<when test="answer_scount == 0">
-			0, '0', '0', 0, '0', '0'
+			0, '0', '0', 0, 0, '0', '0', 0
 	</when>
 		<when test="answer_scount == 1">
-			#{answer_sone_node}, #{answer_sone_start}, #{answer_sone_end}, 0, '0', '0'
+			#{answer_stwo_eventno}, #{answer_stwo_start}, #{answer_stwo_end}, #{answer_stwo_node}, 0, '0', '0', 0
 	</when>
 		<when test="answer_scount == 2">
-			#{answer_sone_node}, 
-			#{answer_sone_start}, #{answer_sone_end}, #{answer_stwo_node}, 
-			#{answer_stwo_start}, #{answer_stwo_end} 
+			#{answer_stwo_eventno}, #{answer_stwo_start}, #{answer_stwo_end}, #{answer_stwo_node},
+			#{answer_sthree_eventno}, #{answer_sthree_start}, #{answer_sthree_end}, #{answer_sthree_node}
 	</when>
 	</choose>
 			

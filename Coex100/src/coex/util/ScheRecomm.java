@@ -59,7 +59,11 @@ public class ScheRecomm {
 		String dateStr = formatter.format(answer.getAnswer_date());
 		resultSche.setSchedule_date(dateStr);
 		// 스케줄 START TIME 셋팅
+		resultSche.setSchedule_start_time(answer.getAnswer_start_time());
 		// 스케줄 END_TIME 셋팅
+		resultSche.setSchedule_end_time(answer.getAnswer_end_time());
+		//스케줄 타임테이블 설정
+		resultSche.setSchedule_time_table("");
 		// PREF생성 후 해당하는 PREF의 넘버를 PREFNO에 넣어줌
 		Preference pref = new Preference();
 		PreferenceDAO prefDAO = new PreferenceDAO();

@@ -13,6 +13,7 @@ import coex.dao.AnswerDAO;
 import coex.dao.PlaceDAO;
 import coex.dao.ScheduleDAO;
 import coex.util.AlarmClock;
+import coex.util.ScheRecomm;
 import coex.vo.Alarm;
 import coex.vo.Answer;
 import coex.vo.Place;
@@ -28,7 +29,8 @@ public class AnswerAction extends ActionSupport implements SessionAware {
 	String phone_num;
 	ArrayList<Place> placeList = new ArrayList<>();
 	Place place;
-	ArrayList<String> timeList = new ArrayList<>();;
+	ArrayList<String> timeList = new ArrayList<>();
+	
 	
 	
 	/*public String question1(){
@@ -81,13 +83,23 @@ public class AnswerAction extends ActionSupport implements SessionAware {
 		answer.setAnswer_meal(answer2.getAnswer_meal());
 		AnswerDAO dao = new AnswerDAO();
 		dao.insertAnswer(answer);
+		ScheRecomm scheRecom = new ScheRecomm();
+		Schedule newSche = scheRecom.ansToSche(answer, "익명");
+		scheRecom.scheduleRecomm(answer, newSche, newSche.getSchedule_start_time(), newSche.getSchedule_end_time());
+		System.out.println(newSche.toString());
+		ScheduleDAO sdao = new ScheduleDAO();
+		sdao.insertSchedule(newSche);
+		
+		this.session.put("Schedule_no", sdao.getLastNo());
 		return SUCCESS;
 	}
 	
 	//스케줄 테스트
 	public String schedule(){
+		int schedule_no = (int)session.get("Schedule_no");
 		ScheduleDAO dao = new ScheduleDAO();
-		schedule = dao.findSchedule(10000);
+		schedule = dao.findSchedule(schedule_no);
+		System.out.println("찾아온 스케줄 : "+schedule.toString());
 		eventList = schedule.getSchedule_event_list().split(",");
 		startTimeList = schedule.getSchedule_time_list().split(",");
 		PlaceDAO placeDao = new PlaceDAO();
