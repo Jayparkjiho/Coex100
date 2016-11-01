@@ -6,7 +6,7 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
    <meta name="naver-site-verification" content="145d0ef395b841d2a4f4591cbdbab4d463f14961"/>
-   <title>웹가이드북 | 트립큐레이터</title>
+   <title>상점리스트</title>
    <link rel="profile" href="http://gmpg.org/xfn/11">
    <link rel="pingback" href="http://trip-curator.co.kr/xmlrpc.php">
    <link rel="alternate" type="application/rss+xml" title="트립큐레이터 &mdash; 피드" href="http://trip-curator.co.kr/feed">
