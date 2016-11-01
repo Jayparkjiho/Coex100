@@ -1,6 +1,8 @@
 package coex.action;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -10,6 +12,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import coex.dao.AnswerDAO;
 import coex.dao.PlaceDAO;
 import coex.dao.ScheduleDAO;
+import coex.util.AlarmClock;
+import coex.vo.Alarm;
 import coex.vo.Answer;
 import coex.vo.Place;
 import coex.vo.Schedule;
@@ -21,6 +25,7 @@ public class AnswerAction extends ActionSupport implements SessionAware {
 	Schedule schedule;
 	String[] eventList;
 	String[] startTimeList;	
+	String phone_num;
 	ArrayList<Place> placeList = new ArrayList<>();
 	Place place;
 	ArrayList<String> timeList = new ArrayList<>();;
@@ -76,9 +81,6 @@ public class AnswerAction extends ActionSupport implements SessionAware {
 		answer.setAnswer_meal(answer2.getAnswer_meal());
 		AnswerDAO dao = new AnswerDAO();
 		dao.insertAnswer(answer);
-		
-		
-		
 		return SUCCESS;
 	}
 	
@@ -97,6 +99,84 @@ public class AnswerAction extends ActionSupport implements SessionAware {
 		System.out.println(placeList.toString());
 		return SUCCESS;
 	}
+	
+	//user단에서 스케줄에 대한 문자서비스를  받을지 안받을지에 대한 확인 메소드
+	public String sendSms(){
+		Calendar c = new GregorianCalendar();
+		Alarm a = new Alarm();
+		
+		String[] timeValues2 = null;
+		
+		ArrayList<String> lastPlace = new ArrayList<>();
+		ArrayList<String> lastTime = new ArrayList<>();
+		
+		String times = schedule.getSchedule_time_list();
+		String[] timeValues1 = times.split(",");
+		String places = null;
+		
+		for (Place place : placeList) {
+			places += ""+place.getPlace_name()+",";
+		}
+		
+		String[] placeValues1 = places.split(",");
+		
+		//여러 시간의 시작시간만 짜른다.
+		for (int i = 0; i < timeValues1.length; i++) {
+			timeValues2 = timeValues1[i].split("~");
+			for (int j = 0; j < timeValues2.length; j=j+2) {
+				lastTime.add(minusTime(timeValues2[j]));
+			}
+		}
+		
+		//String인 장소를 각각 풀어서 arraylist에 저장한다,
+		for (int i = 0; i < placeValues1.length; i++) {
+			lastPlace.add(placeValues1[i]);
+			System.out.println(placeValues1[i]);
+		}
+		
+		System.out.println(lastPlace.toString());
+		
+		a.setNumber(phone_num);
+		a.setDay("16/11/02");
+		a.setTimes(lastTime);
+		a.setPlaces(lastPlace);
+		
+		AlarmClock ac = new AlarmClock();
+		ac.checkAlarm(a);
+		return SUCCESS;
+	}
+
+	/**
+	 * 문자 메세지를 보내줄 시간의 10분을 빼기 위한 메소드
+	 * @param time
+	 * @return 전송시간
+	 */
+	public static String minusTime(String time){
+		String tt = time;
+		String[] ab = tt.split(":");
+		int hour = Integer.parseInt(ab[0]);
+		int min = Integer.parseInt(ab[1]);
+		System.out.println(ab[0] +" " + ab[1]);
+		
+		if (min < 10) {
+			hour = hour - 1;
+			min = min + 60 - 10;
+		}
+		else{
+			min = min - 10;
+			if (min == 0 ) {
+				min = 00;
+			}
+		}
+		
+		if (hour > 12) {
+			hour = hour - 12;
+		}
+		tt = "" + hour + ":" + min;
+		System.out.println(tt);
+		return tt;
+	}
+	
 	
 	
 	
