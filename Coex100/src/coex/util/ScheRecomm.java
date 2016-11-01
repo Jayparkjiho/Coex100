@@ -283,15 +283,15 @@ public class ScheRecomm {
 
 		int aaa = it.next();
 		int count = 0;
-		while (it.hasNext() && count < 20) {
+		while (it.hasNext() && count < 30) {
 			int temp = (Integer) it.next();
-			System.out.println(temp + " = " + placeNoAndScore.get(temp));
+			//System.out.println(temp + " = " + placeNoAndScore.get(temp));
 			finalWinners.add(temp);
 			count++;
 		}
 		Place finalWinner=null;
 		if (prevPlace!=null && prevPlace.getPlace_type() == 4) {//이전행위가 커피면
-			finalWinner = new PlaceDAO().selectPlace(finalWinners.get(0));
+			finalWinner = new PlaceDAO().selectPlace(finalWinners.get(0));//한번에 빼온다
 		}else{
 		// 섞고
 		 Collections.shuffle(finalWinners);
@@ -345,6 +345,14 @@ public class ScheRecomm {
 		scheduleRecomm(answer, schedule, newStartTime, endTime);
 	}
 
+	
+	/**
+	 * 사용자가 입력한 답변을 바탕으로 Preference에서 필요한 값만 합산해 점수로 환산하는 메소드
+	 * @param answer
+	 * @param Pref
+	 * @param startTime
+	 * @return
+	 */
 	public int answerToScore(Answer answer, PlaceAndPref Pref, String startTime) {
 		int totalScore = 0;
 		totalScore += Pref.getPref_no();// 가산점 추가
