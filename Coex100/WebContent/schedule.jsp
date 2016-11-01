@@ -65,10 +65,10 @@ $(function(){
 				output2 += "<p class='text-center'>"
 				
 				/* 가게이름 공란 제거 - 이미지 제목 때문임 */
-				place_name = item.place_name;
-				place_name = place_name.replace(/\s/gi, ''); 
+				/* place_name = item.place_name;
+				place_name = place_name.replace(/\s/gi, '');  */
 				
-				output2 +=	"<img class='place_photo' src='images/"+place_name+".jpg'>" 
+				output2 +=	"<img class='place_photo' src='"+item.place_photo_name+"'>" 
 				output2 +=  "</p>"
 				output2 +=  "</div>"
     			
